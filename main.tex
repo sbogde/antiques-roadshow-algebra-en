@@ -1,16 +1,66 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+% main.tex — English translation
+\documentclass[12pt,a4paper]{book}
 
-\title{antiques-roadshow-algebra-en}
+% Encoding and language
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Maths and layout
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=3cm}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Theorem environments (mirroring the RO version) ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Title page ----------
+\title{The Co-Irreducible (Uniform) Dimension of Rings and Modules \\[0.5em]
+  \large Translation of my University of Bucharest thesis}
 \author{Sorin Bogde}
-\date{November 2025}
+\date{Original: 1999 \\ Translation: 2025}
 
 \begin{document}
 
+\frontmatter
 \maketitle
+\tableofcontents
 
-\section{Introduction}
+% \chapter*{Preface}
+% A short translator's preface can be added here later.
 
-Test
+\mainmatter
+
+\chapter{Introduction}
+This is placeholder text for the introduction chapter.
+The actual content will be a faithful English translation
+of the 1999 Romanian thesis, added page by page.
+
+% Further chapters will be added as we progress.
+% Example:
+% \chapter{Title of Chapter 1}
+% ...
+
+\backmatter
+
+% REFERENCES
+% As with the RO version, we can either recreate the bibliography
+% manually or from a .bib file.
+% \bibliographystyle{plain}
+% \bibliography{bibliography}
 
 \end{document}
