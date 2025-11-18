@@ -7,7 +7,11 @@
 \usepackage[english]{babel}
 
 % Maths and layout
+% \usepackage{amsmath,amssymb,amsthm}
 \usepackage{amsmath,amssymb,amsthm}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\soc}{soc}
+
 \usepackage{geometry}
 \geometry{margin=3cm}
 \usepackage{graphicx}
@@ -16,7 +20,9 @@
 
 % ---------- Theorem environments (mirroring the RO version) ----------
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[chapter]
+% \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[section]   % [section] not [chapter]
+
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -29,10 +35,13 @@
 \newtheorem{remark}[theorem]{Remark}
 
 % ---------- Title page ----------
-\title{The Co-Irreducible (Uniform) Dimension of Rings and Modules \\[0.5em]
-  \large Translation of my University of Bucharest thesis}
-\author{Sorin Bogde}
-\date{Original: 1999 \\ Translation: 2025}
+\title{The Uniform (Co-Irreducible) Dimension of Rings and Modules}
+\author{Supervisor: Prof. Dr Tiberiu Dumitrescu\\[0.5em]
+Student: Sorin Bogde}
+\date{Original thesis: University of Bucharest, Faculty of Mathematics, 1999\\
+English translation: \today}
+
+% \date{Original: 1999 \\ Translation: 2025}
 
 \begin{document}
 
@@ -45,10 +54,105 @@
 
 \mainmatter
 
-\chapter{Introduction}
-This is placeholder text for the introduction chapter.
-The actual content will be a faithful English translation
-of the 1999 Romanian thesis, added page by page.
+\setcounter{chapter}{-1}
+\chapter{Generalities}
+
+\section{Semisimple modules}
+
+\begin{definition}
+A non-zero \(R\)-module \(S\) is called \emph{simple} if its only submodules are
+\(0\) and \(S\).
+\end{definition}
+
+\begin{proposition}
+Let \(S\) be an \(R\)-module. The following statements are equivalent:
+\begin{enumerate}
+  \item \(S\) is simple;
+  \item for every non-zero element \(x \in S\) we have \(S = xR\);
+  \item \(S \cong R/I\), where \(I\) is a maximal right ideal.
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[Schur]
+Let \(S\) and \(S'\) be simple \(R\)-modules and let \(f\colon S \to S'\) be a homomorphism
+of \(R\)-modules. Then \(f = 0\) or \(f\) is an isomorphism. In particular
+\(\End_R(S)\) is a division ring.
+\end{lemma}
+
+\begin{definition}
+Let \(M\) be an \(R\)-module and let \((S_i)_{i\in I}\) be the family of all simple
+submodules of \(M\). If \(M = \sum_{i\in I} S_i\), then \(M\) is called \emph{semisimple}.
+\end{definition}
+
+\begin{proposition}
+Let \(M\) be a semisimple \(R\)-module and \(N\) a submodule of \(M\).
+Then there exists a subset \(J \subseteq I\) such that
+\begin{enumerate}
+  \item the family \((S_j)_{j\in J}\) is independent;
+  \item \(M = N \oplus \bigl(\bigoplus_{j\in J} S_j\bigr)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+With the above notation, for the semisimple module \(M\) there exists \(J \subseteq I\) such
+that the family \((S_j)_{j\in J}\) is independent and
+\[
+  M = \bigoplus_{i\in I} M_i.
+\]
+\end{corollary}
+
+\begin{corollary}
+If \(M\) is a semisimple \(R\)-module and \(N\) a submodule of \(M\), then both \(N\) and
+\(M/N\) are semisimple.
+\end{corollary}
+
+\begin{corollary}
+A direct sum of semisimple modules is a semisimple module.
+\end{corollary}
+
+\begin{theorem}
+Let \(M\) be an \(R\)-module. The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) is semisimple;
+  \item \(M\) is isomorphic to a direct sum of simple modules;
+  \item every submodule of \(M\) is a direct summand of \(M\);
+  \item every short exact sequence
+  \[
+    0 \longrightarrow M' \xrightarrow{\,f\,} M \xrightarrow{\,g\,} M'' \longrightarrow 0
+  \]
+  splits.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+The sum of all simple submodules of \(M\) is called the \emph{socle} of \(M\) and is denoted
+by \(\soc(M)\). If \(M\) has no simple submodule we put \(\soc(M) = 0\).
+\end{definition}
+
+\begin{proposition}
+Let \(M\) and \(N\) be \(R\)-modules and \(f\colon M \to N\) a homomorphism.
+Then \(f(\soc(M)) \subseteq \soc(N)\).
+\end{proposition}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module and \(N\) a submodule of \(M\). Then
+\[
+  \soc(N) = \soc(M) \cap N.
+\]
+\end{proposition}
+
+\begin{proposition}
+If \(M = \bigoplus_{i\in I} M_i\), then
+\[
+  \soc(M) = \bigoplus_{i\in I} \soc(M_i).
+\]
+\end{proposition}
+
+\begin{proposition}
+Let \(R\) be a ring. Then the socle \(\soc(R_R)\) is a two-sided ideal of \(R\).
+\end{proposition}
+
+
 
 % Further chapters will be added as we progress.
 % Example:
