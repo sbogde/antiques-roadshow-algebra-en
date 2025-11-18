@@ -7,7 +7,6 @@
 \usepackage[english]{babel}
 
 % Maths and layout
-% \usepackage{amsmath,amssymb,amsthm}
 \usepackage{amsmath,amssymb,amsthm}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\soc}{soc}
@@ -152,6 +151,121 @@ If \(M = \bigoplus_{i\in I} M_i\), then
 Let \(R\) be a ring. Then the socle \(\soc(R_R)\) is a two-sided ideal of \(R\).
 \end{proposition}
 
+
+
+\section{Noetherian (Artinian) modules and Noetherian (Artinian) rings}
+
+\begin{definition}
+Let \(R\) be a ring and \(M\) a right \(R\)-module. We say that \(M\) satisfies
+the \emph{maximal condition} (resp.\ the \emph{minimal condition}) if every
+non-empty set of submodules of \(M\), ordered by inclusion, has a maximal
+(resp.\ minimal) element.
+
+We say that \(M\) satisfies the \emph{ascending} (resp.\ \emph{descending})
+\emph{chain condition} if every ascending chain of submodules of \(M\)
+\[
+  M_1 \subseteq M_2 \subseteq \cdots \subseteq M_i \subseteq \cdots
+\]
+(resp.\ every descending chain
+\[
+  M_1 \supseteq M_2 \supseteq \cdots \supseteq M_i \supseteq \cdots
+\])
+is stationary, that is, there exists \(n \ge 1\) such that
+\(M_n = M_{n+1} = \cdots\).
+\end{definition}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module. The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) satisfies the maximal (minimal) condition;
+  \item \(M\) satisfies the ascending (descending) chain condition.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+An \(R\)-module \(M\) is called \emph{noetherian} (resp.\ \emph{artinian}) if it
+satisfies the maximal (resp.\ minimal) condition. The ring \(R\) is called
+right noetherian (resp.\ right artinian) if the right module \(R_R\) is
+noetherian (resp.\ artinian).
+\end{definition}
+
+\begin{example}
+\leavevmode
+\begin{enumerate}
+  \item \(\mathbb{Z}\) is a noetherian ring but not artinian.
+  \item Every finite group is a noetherian and artinian \(\mathbb{Z}\)-module.
+  \item Every finite ring is noetherian and artinian.
+  \item The ring \(\mathbb{Z}[X_1,X_2,\ldots,X_n,\ldots]\) is neither
+        noetherian nor artinian:
+        \[
+          (X_1) \subsetneq (X_1,X_2) \subsetneq \cdots \subsetneq
+          (X_1,\ldots,X_n) \subsetneq \cdots
+        \]
+        \[
+          (X_1) \supsetneq (X_1^2) \supsetneq \cdots \supsetneq
+          (X_1^k) \supsetneq \cdots
+        \]
+  \item The Prüfer \(p\)-group \(\mathbb{Z}_{p^\infty}\) is an artinian but not
+        noetherian \(\mathbb{Z}\)-module.
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+Let \(N\) and \(P\) be submodules of \(M\) such that \(M = N + P\).
+Then \(M\) is noetherian (artinian) if and only if \(N\) and \(P\) are
+noetherian (artinian).
+\end{proposition}
+
+\begin{proposition}
+For an \(R\)-module \(M\) the following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) is noetherian;
+  \item every submodule of \(M\) is finitely generated.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+For an \(R\)-module \(M\) the following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) is artinian;
+  \item for every family \((X_i)_{i\in I}\) of submodules of \(M\) there exists
+        a finite subset \(J \subseteq I\) such that
+        \[
+          \bigcap_{i\in I} X_i = \bigcap_{j\in J} X_j.
+        \]
+\end{enumerate}
+\end{proposition}
+
+\section{Finite length modules}
+
+\begin{definition}
+Let \(M\) be a non-zero right \(R\)-module. A \emph{composition series} or
+\emph{Jordan--Hölder series} of \(M\) is a finite strictly ascending chain of
+submodules
+\[
+  0 = X_0 \subset X_1 \subset \cdots \subset X_n = M
+\]
+such that \(X_{i+1}/X_i\) is a simple module for \(0 \le i \le n-1\).
+The integer \(n\) is called the \emph{length} of the series, and the modules
+\(X_{i+1}/X_i\) are called its \emph{factors}.
+\end{definition}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module. The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) has a composition series;
+  \item \(M\) is noetherian and artinian.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let
+\[
+  0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+\]
+be a short exact sequence of right \(R\)-modules. Then \(M\) has a composition
+series if and only if both \(M'\) and \(M''\) have composition series.
+\end{proposition}
 
 
 % Further chapters will be added as we progress.
