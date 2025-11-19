@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
+\usepackage{tikz-cd}
 
 % Maths and layout
 \usepackage{amsmath,amssymb,amsthm}
@@ -26,8 +27,8 @@
 
 % ---------- Theorem environments (mirroring the RO version) ----------
 \theoremstyle{plain}
-% \newtheorem{theorem}{Theorem}[section]   % [section] not [chapter]
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[section]   % [section] not [chapter]
+% \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -871,6 +872,130 @@ Since \(K\) is a complement of \(N\), we have \(N \cap L \neq 0\), and hence
 \frac{N \cap L + K}{K} \neq 0,
 \]
 which shows that \(\pi_K \circ i_N\) is an essential monomorphism.
+\end{proof}
+
+
+
+\chapter{Injective Modules}
+\section{Injective Module}
+Let \(Q\) and \(M\) be two right \(R\)-modules.
+We say that \(Q\) is \emph{\(M\)-injective} if for every monomorphism
+\(u : M' \to M\) and every morphism \(f : M' \to Q\), there exists
+\(g : M \to Q\) such that \(g \circ u = f\); that is, the diagram
+
+\[
+\begin{tikzcd}
+0 \arrow[r] & M' \arrow[r,"u"] \arrow[d,"f"'] & M \arrow[dl,dashed,"g"] \\
+            & Q &
+\end{tikzcd}
+\]
+
+is commutative.
+
+This property is equivalent to the condition that the map
+\[
+\Hom(u,Q) : \Hom(M,Q) \longrightarrow \Hom(M',Q)
+\]
+is surjective for every monomorphism \(u : M' \to M\).
+Since the functor \(\Hom(-,Q)\) is left exact, it follows that \(Q\) is
+\(M\)-injective if and only if \(\Hom(-,Q)\) is exact with respect to every
+short exact sequence of the form
+\[
+0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0.
+\]
+
+The \(R\)-module \(Q\) is called \emph{quasi-injective} (or
+\emph{self-injective}) if it is \(Q\)-injective.
+If \(Q\) is \(M\)-injective for every \(R\)-module \(M\), then \(Q\) is called
+\emph{injective}.
+
+
+2.1.1 Proposition
+
+\begin{proposition}
+Let \(Q\) and \(M\) be two \(R\)-modules.
+The following statements are equivalent:
+\begin{enumerate}
+  \item \(Q\) is \(M\)-injective.
+  \item For every submodule \(N\) of \(M\) and every morphism
+        \(f : N \to Q\), there exists \(g : M \to Q\) such that
+        \(g_{\mid N} = f\).
+  \item For every essential submodule \(N\) of \(M\) and every morphism
+        \(f : N \to Q\), there exists \(g : M \to Q\) such that
+        \(g_{\mid N} = f\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Implications \((1) \Rightarrow (2)\) and \((2) \Rightarrow (3)\) are obvious.
+
+\medskip
+\noindent\((2) \Rightarrow (1)\).
+Let \(M'_R\), \(0 \longrightarrow M' \xrightarrow{u} M\) and
+\(f : M' \to Q\).
+Then \(u(M') \leq M\).
+Consider \(i : u(M') \to M\) the canonical injection and
+\(\bar{u} : M' \to u(M')\) the isomorphism induced by \(u\).
+There exists \(g : M \to Q\) such that \(g \circ i = f \circ \bar{u}^{-1}\).
+Hence
+\[
+g \circ i \circ \bar{u} = f
+\quad\text{and therefore}\quad
+g \circ u = f.
+\]
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+M' \arrow[r,shift left=0.35ex,"\bar{u}"]
+   \arrow[dr,"f"'] &
+u(M') \arrow[r,hook,"i"] &
+M \arrow[dl,dashed,"g"] \\
+& & Q &
+\end{tikzcd}
+\]
+
+\noindent\((3) \Rightarrow (2)\).
+Let \(N\) be a submodule of \(M\) and \(K\) a complement of \(N\) in \(M\).
+Then \((N \oplus K) \ess M\).
+Define \(h : N \oplus K \to Q\) by \(h(n+k) = f(n)\) for all
+\(n \in N\), \(k \in K\).
+Since \(N \cap K = 0\), the map \(h\) is well-defined.
+There exists \(g : M \to Q\) such that \(g_{\mid N \oplus K} = h\), and hence
+\(g_{\mid N} = h_{\mid N} = f\).
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r,hook] \arrow[dr,"f"'] &
+N \oplus K \arrow[r,hook] \arrow[d,"h"] &
+M \arrow[dl,dashed,"g"] \\
+& & Q &
+\end{tikzcd}
+\]
+\end{proof}
+
+2.1.2 Proposition
+
+\begin{proposition}
+Let \((M_\alpha)_{\alpha \in \Lambda}\) be a family of \(R\)-modules and
+\(M\) an \(R\)-module.
+Then \(\displaystyle \prod_{\alpha \in \Lambda} M_\alpha\) is
+\(M\)-injective if and only if each \(M_\alpha\) is \(M\)-injective.
+\end{proposition}
+
+\begin{proof}
+Let \(N\) be a submodule of \(M\).
+Put \(P = \displaystyle\prod_{\alpha \in \Lambda} M_\alpha\) and let
+\(\pi_\alpha : P \to M_\alpha\) be the canonical projections for all
+\(\alpha \in \Lambda\).
+
+\medskip
+\noindent\("\Leftarrow"\)
+Given a morphism \(f : N \to P\), the morphisms
+\(\pi_\alpha \circ f : N \to M_\alpha\) can be extended to
+\(g_\alpha : M \to M_\alpha\).
+There exists \(g : M \to P\) such that \(g_{\mid N} = f\).
 \end{proof}
 
 
