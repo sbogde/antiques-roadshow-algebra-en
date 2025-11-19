@@ -10,6 +10,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\soc}{soc}
+\DeclareMathOperator{\Rad}{Rad}
 
 \usepackage{geometry}
 \geometry{margin=3cm}
@@ -267,6 +268,124 @@ be a short exact sequence of right \(R\)-modules. Then \(M\) has a composition
 series if and only if both \(M'\) and \(M''\) have composition series.
 \end{proposition}
 
+
+
+If
+\[
+  0 = M_0 \subseteq M_1 \subseteq \cdots \subseteq M_n = M,\qquad
+  0 = N_0 \subseteq N_1 \subseteq \cdots \subseteq N_p = M
+\]
+are two composition series of \(M\), we say that they are
+\emph{equivalent} if \(n = p\) and there exists a bijection
+\(\sigma : \{0,\ldots,n-1\} \to \{0,\ldots,n-1\}\) such that
+\[
+  M_{i+1}/M_i \cong M_{\sigma(i)+1}/M_{\sigma(i)}
+  \quad (0 \le i \le n-1).
+\]
+
+\begin{theorem}[Jordan--Hölder]
+If an \(R\)-module \(M\) has two composition series
+\[
+  0 = M_0 \subseteq M_1 \subseteq \cdots \subseteq M_n = M,\qquad
+  0 = N_0 \subseteq N_1 \subseteq \cdots \subseteq N_p = M,
+\]
+then these two series are equivalent.
+\end{theorem}
+
+\begin{definition}
+An \(R\)-module \(M\) which admits a composition series is called a
+\emph{module of finite length}. The length of its composition series is
+called the \emph{length} of \(M\) and is denoted by \(l(M)\). If \(M\)
+admits no composition series, we say that \(M\) has \emph{infinite
+length} and we write \(l(M)=\infty\).
+\end{definition}
+
+\begin{proposition}
+Let
+\[
+  0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+\]
+be a short exact sequence of \(R\)-modules of finite length. Then
+\[
+  l(M) = l(M') + l(M'').
+\]
+\end{proposition}
+
+\begin{corollary}
+Let \(M\) be an \(R\)-module of finite length and let \(N,L\) be
+submodules of \(M\). Then:
+\begin{enumerate}
+  \item \(l(M) = l(N) + l(M/N)\);
+  \item \(l(N+L) + l(N\cap L) = l(N) + l(L)\).
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+Let \(M\) be an \(R\)-module of finite length and let
+\(M_1,M_2,\ldots,M_n\) be submodules of \(M\) such that
+\[
+  M = M_1 \oplus M_2 \oplus \cdots \oplus M_n.
+\]
+Then
+\[
+  l(M) = \sum_{i=1}^{n} l(M_i).
+\]
+\end{corollary}
+
+\section{The Jacobson radical}
+
+\medskip
+\noindent\textbf{The Jacobson radical of a module.}
+
+\begin{definition}
+Let \(M\) be an \(R\)-module. The intersection of all maximal submodules
+of \(M\) is called the \emph{Jacobson radical} of \(M\) and is denoted
+by \(\Rad(M)\). If \(M\) has no maximal submodules, we adopt the
+convention \(\Rad(M)=M\).
+\end{definition}
+
+\begin{remark}
+If \(M\) is a finitely generated \(R\)-module, then \(\Rad(M)\ne M\).
+\end{remark}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module. Then
+\[
+  \Rad(M)
+  = \bigcap_{\substack{f : M \to S\\ S\ \text{simple}}} \ker(f)
+  = \bigcap_{\substack{f : M \to X\\ X\ \text{semisimple}}} \ker(f).
+\]
+\end{proposition}
+
+\begin{proposition}
+Let \(f : M \to N\) be a homomorphism of \(R\)-modules. Then
+\(f(\Rad(M)) \subseteq \Rad(N)\). If, in addition, \(f\) is an
+epimorphism and \(\ker(f) \subseteq \Rad(M)\), then
+\(f(\Rad(M)) = \Rad(N)\).
+\end{proposition}
+
+\begin{corollary}
+For every \(R\)-module \(M\) we have \(\Rad(M/\Rad(M)) = 0\).
+\end{corollary}
+
+\begin{corollary}
+If \(M\) is a semisimple \(R\)-module, then \(\Rad(M)=0\).
+\end{corollary}
+
+\begin{corollary}
+If \(M = \bigoplus_{i\in I} M_i\), then
+\[
+  \Rad(M) = \bigoplus_{i\in I} \Rad(M_i).
+\]
+\end{corollary}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module with \(\Rad(M)\ne M\). Then
+\[
+  \Rad(M)
+  = \bigcap \{\,L \le M \mid L \text{ is a superfluous submodule}\,\}.
+\]
+\end{proposition}
 
 % Further chapters will be added as we progress.
 % Example:
