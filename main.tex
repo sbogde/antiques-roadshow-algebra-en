@@ -11,6 +11,12 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\soc}{soc}
 \DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Hom}{Hom}
+
+% notations for essential submodule as per https://en.wikipedia.org/wiki/Essential_extension
+\newcommand{\ess}{\trianglelefteq}  % Anderson–Fuller-style (default in text)
+\newcommand{\esse}{\subseteq_{\!e}}      % Lam-style
 
 \usepackage{geometry}
 \geometry{margin=3cm}
@@ -20,9 +26,8 @@
 
 % ---------- Theorem environments (mirroring the RO version) ----------
 \theoremstyle{plain}
-% \newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{theorem}{Theorem}[section]   % [section] not [chapter]
-
+% \newtheorem{theorem}{Theorem}[section]   % [section] not [chapter]
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -30,6 +35,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}         % UNnumbered
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
@@ -485,6 +491,118 @@ The following statements are equivalent:
 A right artinian ring (respectively a left artinian ring) is right
 noetherian (respectively left noetherian).
 \end{corollary}
+
+
+
+
+\chapter{Essential submodules}
+
+\begin{definition}
+Let \(M\) be a right \(R\)-module. A submodule \(N\) of \(M\) is called
+\emph{essential} (or we say that \(M\) is an essential extension of \(N\))
+if \(N \cap N' \ne 0\) for every non-zero submodule \(N'\) of \(M\).
+In this case we write \(N \ess M_R\).
+
+A homomorphism of right \(R\)-modules \(f : M \to N\) is called
+\emph{essential} if \(\operatorname{Im} f\) is an essential submodule of
+\(N\) (i.e.\ \(\operatorname{Im} f \ess N_R\)).
+\end{definition}
+
+\begin{example*}
+\leavevmode
+\begin{enumerate}
+  \item \(n\mathbb{Z} \ess \mathbb{Z}_\mathbb{Z}\) for every \(n \ge 1\).
+  \item Every submodule of the Prüfer group \(\mathbb{Z}_{p^\infty}\) is
+        essential.
+\end{enumerate}
+\end{example*}
+
+\begin{remark}
+Let \(M\) be a right \(R\)-module and \(N\) a submodule of \(M\).
+Then \(N \ess M_R\) if and only if for every \(x \in M\), \(x \ne 0\),
+there exists \(r \in R\) such that \(xr \in N \setminus \{0\}\).
+\end{remark}
+
+\begin{proof}
+“\(\Rightarrow\)” Let \(x \in M \setminus \{0\}\). Since
+\(0 \ne xR \le M_R\) and \(N \ess M_R\), we have
+\(xR \cap N \ne 0\); hence there exists \(r \in R\) with
+\(xr \in N \setminus \{0\}\).
+
+“\(\Leftarrow\)” Let \(N' \le M_R\), \(N' \ne 0\). For every
+\(x \in N' \setminus \{0\}\) there exists \(r \in R\) such that
+\(xr \in N \setminus \{0\}\), so \(N \cap N' \ne 0\).
+Thus \(N \ess M_R\).
+\end{proof}
+
+\begin{definition}
+A monomorphism of right \(R\)-modules
+\(f : N_R \to M_R\) is called \emph{essential} if
+\(\operatorname{Im} f \ess M_R\). It is immediate that, if \(N\) is a
+submodule of \(M\), then the canonical inclusion
+\(i_N : N \to M\) is an essential monomorphism if and only if
+\(N \ess M_R\).
+\end{definition}
+
+
+\begin{proposition}
+A monomorphism \(f : N_R \to M_R\) is essential if and only if for every
+right \(R\)-module \(M'\) and every \(g \in \Hom(M,M')\), the fact that
+\(g \circ f\) is a monomorphism implies that \(g\) is a monomorphism.
+\end{proposition}
+
+
+\begin{proof}
+“\(\Rightarrow\)” Let \(g\) be as in the statement and suppose that
+\(g \circ f\) is a monomorphism. Assume \(\Ker g \ne 0\). Take
+\(x \in \Ker g \cap \operatorname{Im} f \setminus \{0\}\). Then
+\(x = f(x')\) for some \(x' \in N\) and \(g(x)=0\), so
+\(g(f(x')) = 0\). Since \(g \circ f\) is a monomorphism, it follows that
+\(x' = 0\) and hence \(x = 0\), a contradiction.
+
+“\(\Leftarrow\)” If \(f\) is not an essential monomorphism, then there
+exists \(N' \le M_R\), \(N' \ne 0\), such that
+\(N' \cap \operatorname{Im} f = 0\). Consider the canonical projection
+\(\pi_{N'} : M \to M/N'\). If \(x \in \Ker(\pi_{N'} \circ f)\), then
+\(f(x) \in N'\), so \(f(x) = 0\), hence \(x = 0\). Thus
+\(\pi_{N'} \circ f\) is injective. By the hypothesis in the statement,
+this implies that \(\pi_{N'}\) is injective, so \(N' = 0\), a
+contradiction.
+\end{proof}
+
+
+\begin{corollary}
+Let \(M\) be a right \(R\)-module and \(N \le M_R\).
+Then the following statements are equivalent:
+\begin{enumerate}
+  \item \(N \ess M_R\);
+  \item the inclusion \(i_N : N \to M\) is an essential monomorphism;
+  \item for every \(f \in \Hom(M,M')\), with \(M'\) an arbitrary
+        \(R\)-module, the fact that \(f \circ i_N\) is a monomorphism
+        implies that \(f\) is a monomorphism.
+\end{enumerate}
+\end{corollary}
+
+\begin{proposition}
+Let \(f : N_R \to M_R\) and \(g : M_R \to P_R\) be monomorphisms.
+Then \(g \circ f\) is essential if and only if both \(g\) and \(f\) are
+essential.
+\end{proposition}
+
+\begin{proof}
+
+“\(\Leftarrow\)” Let \(z \in P \setminus \{0\}\). Since \(g\) is
+essential, there exists \(r \in R\) such that
+\(zr \in \operatorname{Im} g \setminus \{0\}\). Thus there exists
+\(y \in M \setminus \{0\}\) with \(zr = g(y)\). As \(f\) is essential,
+there exists \(s \in R\) such that
+\(ys \in \operatorname{Im} f \setminus \{0\}\). Hence
+\[
+  zrs = g(ys) \in \operatorname{Im}(g \circ f) \setminus \{0\},
+\]
+showing that \(\operatorname{Im}(g \circ f)\) is essential in \(P_R\).
+(The converse implication will be established later.)
+\end{proof}
 
 % Further chapters will be added as we progress.
 % Example:
