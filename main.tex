@@ -595,14 +595,152 @@ essential.
 essential, there exists \(r \in R\) such that
 \(zr \in \operatorname{Im} g \setminus \{0\}\). Thus there exists
 \(y \in M \setminus \{0\}\) with \(zr = g(y)\). As \(f\) is essential,
-there exists \(s \in R\) such that
-\(ys \in \operatorname{Im} f \setminus \{0\}\). Hence
-\[
-  zrs = g(ys) \in \operatorname{Im}(g \circ f) \setminus \{0\},
-\]
-showing that \(\operatorname{Im}(g \circ f)\) is essential in \(P_R\).
-(The converse implication will be established later.)
+there exists \(r' \in R\) such that \(y r' \in \mathrm{Im}\, f \setminus \{0\}\).
+Hence there exists \(x \in N \setminus \{0\}\) with \(y r' = f(x)\).
+But \(z r' = g(y) r' = g(y r') = g(f(x))\).
+If \(z r' = 0\), then \(g(f(x)) = 0\), hence \(x = 0\), a contradiction.
+Therefore \(z r' \in \mathrm{Im}(g \circ f)\) and \(z r' \neq 0\), which shows that
+\(g \circ f\) is essential.
+
+“\(\Rightarrow\)” Let \(y \in M \setminus \{0\}\).
+Since \(g\) is a monomorphism, \(g(y) \neq 0\).
+Thus there exists \(r \in R\) such that
+\(g(yr) \in \mathrm{Im}\, g \setminus \{0\}\) and \(g(yr) \neq 0\).
+Hence there exists \(x \in N \setminus \{0\}\) such that
+\(g(yr) = g(f(x))\), therefore \(yr = f(x) \in \mathrm{Im}\, f\),
+which shows that \(f\) is an essential monomorphism.
+
+If \(z \in P \setminus \{0\}\), there exists \(r \in R\) such that
+\(z r \in \mathrm{Im}(g \circ f)\) and \(z r \neq 0\).
+Since \(\mathrm{Im}(g \circ f) \subseteq \mathrm{Im}\, g\),
+we obtain \(z r \in \mathrm{Im}\, g\), so \(g\) is essential.
 \end{proof}
+
+
+\begin{proposition}
+Let \(M\) be a right \(R\)-module and
+\(L_1, L_2, \ldots, L_n\) submodules of \(M\).
+Then:
+
+1) \(\displaystyle \bigcap_{i=1}^n L_i\) is essential in \(M\) iff each \(L_i\) is essential in \(M\).
+
+2) If \(L_1 \subseteq L_2\) and \(L_1\) is essential in \(M\), then \(L_2\) is essential in \(M\).
+\end{proposition}
+
+The proof is obvious.
+
+\begin{proposition}
+Let \(K\) and \(L\) be submodules of \(M\).
+
+1) If \(K \subseteq L \subseteq M\), then \(K \, \ess \, M\) iff  
+\(K \, \ess \, L\) and \(L \, \ess \, M\).
+
+2) If \(h : K_R \to M_R\) is a module morphism and \(L \, \ess \, M\),
+then \(h^{-1}(L) \, \ess \, K\).
+
+3) If \(L_1, L_2 \leq M_R\) with \(K_1 \, \ess \, L_1\) and \(K_2 \, \ess \, L_2\),
+then \(K_1 \cap K_2 \, \ess \, L_1 \cap L_2\).
+\end{proposition}
+
+\textbf{Proof.}
+
+1) Apply 1.5 and 1.6.
+
+2) Let \(U\) be a non-zero submodule of \(K\).
+
+(i) If \(h(U) = 0\), then \(U \subseteq \ker h \subseteq h^{-1}(L)\),
+so \(U \cap h^{-1}(L) \neq 0\).
+
+(ii) If \(h(U) \neq 0\), then \(h(U) \cap L \neq 0\).
+Hence there exists \(u \in U\) with \(h(u) \in L\), \(h(u) \neq 0\),
+so \(u \in U \cap h^{-1}(L)\) and \(u \neq 0\).
+
+Thus \(h^{-1}(L) \, \ess \, K\).
+
+3) Let \(0 \neq X \leq L_1 \cap L_2\).
+Then \(X \subseteq L_1\), so \(0 \neq X \cap K_1 \leq L_1\).
+But \(X \subseteq L_2\) implies  
+\(0 \neq (X \cap K_1) \cap L_2 = X \cap (K_1 \cap K_2)\).
+Hence \(K_1 \cap K_2 \, \ess \, L_1 \cap L_2\).
+
+\begin{proposition}
+Let \((K_\lambda)_{\lambda \in \Lambda}\),
+\((L_\lambda)_{\lambda \in \Lambda}\) be families of submodules of \(M\).
+If \((K_\lambda)\) is independent in \(M\) and  
+\(K_\lambda \, \ess \, L_\lambda\) for all \(\lambda \in \Lambda\),
+then \((L_\lambda)\) is independent in \(M\)
+and
+\[
+\left(\bigoplus_{\lambda \in \Lambda} K_\lambda\right)
+   \, \ess \,
+\left(\bigoplus_{\lambda \in \Lambda} L_\lambda\right).
+\]
+\end{proposition}
+
+
+\textbf{Proof.}
+
+Let \(K_1 \, \ess \, L_1\), \(K_2 \, \ess \, L_2\) with \(K_1 \cap K_2 = 0\).
+By 1.8(3), \(0 \, \ess \, L_1 \cap L_2\), hence \(L_1 \cap L_2 = 0\).
+
+Let  
+\(\pi_1 : L_1 \oplus L_2 \to L_1\),
+\(\pi_2 : L_1 \oplus L_2 \to L_2\)
+be the canonical projections.
+Since \(K_1 \, \ess \, L_1\) and \(K_2 \, \ess \, L_2\),
+
+\[
+\pi_1^{-1}(K_1)
+  = K_1 \oplus 0 \, \ess \, L_1 \oplus L_2,
+\]
+and
+\[
+\pi_2^{-1}(K_2)
+  = 0 \oplus K_2 \, \ess \, L_1 \oplus L_2.
+\]
+
+Hence
+\[
+K_1 \oplus K_2
+  = \pi_1^{-1}(K_1) \cap \pi_2^{-1}(K_2)
+  \, \ess \, L_1 \oplus L_2.
+\]
+
+Induction gives the finite case.
+For the general case, let \(0 \neq m \in \oplus_{\lambda \in \Lambda} L_\lambda\).
+Then \(m\) lies in a finite direct sum
+\(\oplus_{\lambda \in \Lambda_0} L_\lambda\)
+for some finite \(\Lambda_0 \subseteq \Lambda\).
+Since
+\((\oplus_{\lambda \in \Lambda_0} K_\lambda)
+   \, \ess \,
+(\oplus_{\lambda \in \Lambda_0} L_\lambda)\),
+there exists \(r \in R\) with
+\(rm \in (\oplus_{\lambda \in \Lambda_0} K_\lambda) \setminus \{0\}
+\subseteq (\oplus_{\lambda \in \Lambda} K_\lambda)\).
+Thus
+\[
+\left(\bigoplus_{\lambda \in \Lambda} K_\lambda\right)
+   \, \ess \,
+\left(\bigoplus_{\lambda \in \Lambda} L_\lambda\right).
+\]
+
+\begin{proposition}
+Let \(N\) be a submodule of \(M\).
+Then there exists a submodule \(Q\) with
+\(N \subseteq Q \subseteq M\)
+such that \(Q\) is a maximal essential extension of \(N\) inside \(M\).
+\end{proposition}
+
+\textbf{Proof.}
+
+Let
+\[
+\mathfrak{S}
+= \{ L \leq M \; ;\; N \subseteq L \subseteq M,\; N \, \ess \, L \},
+\]
+ordered by inclusion.
+Clearly \(\mathfrak{S} \neq \varnothing\), since \(N \in \mathfrak{S}\).
 
 % Further chapters will be added as we progress.
 % Example:
