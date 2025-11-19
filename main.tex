@@ -333,9 +333,8 @@ Then
 \end{corollary}
 
 \section{The Jacobson radical}
+\subsection*{The Jacobson radical of a module}
 
-\medskip
-\noindent\textbf{The Jacobson radical of a module.}
 
 \begin{definition}
 Let \(M\) be an \(R\)-module. The intersection of all maximal submodules
@@ -386,6 +385,106 @@ Let \(M\) be an \(R\)-module with \(\Rad(M)\ne M\). Then
   = \bigcap \{\,L \le M \mid L \text{ is a superfluous submodule}\,\}.
 \]
 \end{proposition}
+
+
+\begin{proposition}[Nakayama's Lemma]
+Let \(M\) be a finitely generated \(R\)-module and \(N\) a submodule of \(M\).
+If \(N + \Rad(M) = M\), then \(N = M\). (In other words, \(\Rad(M)\) is the
+largest superfluous submodule of \(M\).)
+\end{proposition}
+
+\subsection*{The Jacobson radical of a ring}
+
+Let \(R\) be a ring. We consider the left ideal \(\Rad({}_R R)\), the
+intersection of all maximal left ideals of \(R\), and the right ideal
+\(\Rad(R_R)\), the intersection of all maximal right ideals of \(R\).
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+  \item \(\Rad(R_R)\) is a two-sided ideal.
+  \item \(\Rad(R_R)
+          = \{\,r \in R \mid 1-ar \in U(R)\ \text{for all } a \in R\,\}\).
+  \item \(\Rad(R_R) = \Rad({}_R R)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+The two-sided ideal \(\Rad(R_R) = \Rad({}_R R)\) is called the
+\emph{Jacobson radical} of the ring \(R\) and is denoted by \(\Rad(R)\).
+\end{definition}
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+  \item If \(J\) is a left (resp.\ right or two-sided) ideal such that
+        \(1-x\) is invertible for every \(x \in J\), then \(J \subseteq \Rad(R)\).
+  \item If \(J\) is a nil left (resp.\ right or two-sided) ideal, then
+        \(J \subseteq \Rad(R)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let \(\varphi : R \to S\) be a surjective ring homomorphism.
+Then \(\varphi(\Rad(R)) \subseteq \Rad(S)\). If \(\ker(\varphi)
+\subseteq \Rad(R)\), then \(\varphi(\Rad(R)) = \Rad(S)\).
+\end{proposition}
+
+\begin{proposition}
+If \((R_i)_{i\in I}\) is a family of rings, then
+\[
+  \Rad\Bigl(\prod_{i\in I} R_i\Bigr) = \prod_{i\in I} \Rad(R_i).
+\]
+\end{proposition}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module. Then \(M\,\Rad(R) \subseteq \Rad(M)\).
+\end{proposition}
+
+\begin{theorem}
+If \(R\) is an artinian ring, then \(\Rad(R)\) is nilpotent.
+\end{theorem}
+
+\section{Semisimple rings}
+
+\begin{theorem}
+For a ring \(R\) the following statements are equivalent:
+\begin{enumerate}
+  \item every non-zero right \(R\)-module is semisimple;
+  \item \(R\) as a right \(R\)-module is semisimple;
+  \item \(R\) is artinian and \(\Rad(R)=0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+A ring \(R\) satisfying any (hence all) of the above conditions is called
+a \emph{semisimple ring}.
+\end{definition}
+
+\begin{proposition}
+Let \(R\) be a semisimple ring and \(M\) a non-zero \(R\)-module.
+The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) has finite length;
+  \item \(M\) is noetherian;
+  \item \(M\) is artinian.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+Let \(R\) be a right artinian ring and \(M\) a non-zero right \(R\)-module.
+The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) has finite length;
+  \item \(M\) is noetherian;
+  \item \(M\) is artinian.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Hopkins]
+A right artinian ring (respectively a left artinian ring) is right
+noetherian (respectively left noetherian).
+\end{corollary}
 
 % Further chapters will be added as we progress.
 % Example:
