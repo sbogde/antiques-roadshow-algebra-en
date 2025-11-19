@@ -742,6 +742,138 @@ Let
 ordered by inclusion.
 Clearly \(\mathfrak{S} \neq \varnothing\), since \(N \in \mathfrak{S}\).
 
+Let \((L_\lambda)_{\lambda \in \Lambda}\) be a totally ordered family of elements of
+\(\mathfrak{S}\) and put
+\[
+L := \bigcup_{\lambda \in \Lambda} L_\lambda.
+\]
+Clearly \(L \leq M_R\).
+
+Let \(x \in L \setminus \{0\}\).
+Then there exists \(\lambda_0 \in \Lambda\) with \(x \in L_{\lambda_0}\).
+Since \(N\) is essential in \(L_{\lambda_0}\), there exists \(r \in R\) such that
+\(xr \in N\) and \(xr \neq 0\), hence \(L\) is an essential extension of \(N\).
+Thus \(\mathfrak{S}\) is inductive and, by Zorn's lemma, \(\mathfrak{S}\) admits a
+maximal element \(Q\) which satisfies the required conditions.
+
+
+\begin{definition}
+Let \(M\) be a right \(R\)-module and \(N \leq M_R\).
+A submodule \(K \leq M_R\) is called a \emph{complement} of \(N\) in \(M\) if
+\(K\) is a maximal submodule of \(M\) with the property that \(K \cap N = 0\).
+A submodule \(K \leq M_R\) is called a \emph{complement submodule} of \(M\)
+if there exists \(N \leq M_R\) such that \(K\) is a complement of \(N\) in \(M\).
+\end{definition}
+
+\begin{remark}
+The set
+\[
+\widetilde{\mathfrak{S}}
+  = \{\,L \leq M_R \mid N \cap L = 0\,\}
+\]
+is inductive and, by applying Zorn's lemma, it follows that there exists a
+complement of \(N\) in \(M\).
+In particular, \(0\) and \(M\) are complement submodules of \(M\).
+\end{remark}
+
+
+\begin{proposition}
+Let \(M_R\), \(N \leq M_R\) and \(K \leq M_R\), with \(K\) a complement of \(N\) in \(M\).
+There exists a complement \(Q\) of \(K\) in \(M\) such that \(N \subseteq Q\).
+Moreover, \(Q\) is a maximal essential extension of \(N\) in \(M\).
+\end{proposition}
+
+\begin{proof}
+It is easy to see that the set
+\[
+\widetilde{\mathfrak{S}}
+  = \{\,L \leq M_R \mid K \cap L = 0,\; N \subseteq L\,\}
+\]
+is inductive, and Zorn's lemma guarantees the existence of \(Q\).
+
+Let \(L\) be a non-zero submodule of \(Q\) such that \(L \cap N = 0\).
+Put \(K_1 = L + K\).
+Clearly \(K \subseteq K_1\).
+If \(x \in N \cap (L + K)\), then \(x = y + z\) with \(y \in L\), \(z \in K\).
+But \(z = x - y \in Q\).
+Since \(Q \cap K = 0\), we obtain \(z = 0\) and hence \(x = y\).
+From \(L \cap N = 0\) it follows that \(x = y = 0\), and therefore
+\(N \cap (L + K) = 0\), which contradicts the fact that \(K\) is a complement of
+\(N\) in \(M\).
+Thus \(L \cap N \neq 0\) for every \(0 \neq L \leq Q\), so \(Q\) is an essential
+extension of \(N\).
+
+Suppose that there exists \(Q' \leq M_R\) with \(N \ess Q'\) and \(Q \subsetneq Q'\).
+Since \(Q'\) is a complement of \(K\), we have \(Q' \cap K \neq 0\).
+But \(N \cap (Q' \cap K) = 0\) and
+\(0 \neq Q' \cap K \leq Q'\), contradicting \(N \ess Q'\).
+Hence \(Q\) is a maximal essential extension of \(N\) in \(M\).
+\end{proof}
+
+
+\begin{definition}
+A submodule \(N\) of \(M_R\) is called \emph{closed} if \(N\) has no proper
+(meaning different from \(N\)) essential extension in \(M\).
+\end{definition}
+
+
+\begin{corollary}
+Let \(M_R\) be a right \(R\)-module.
+The complement submodules of \(M\) coincide with the closed submodules of \(M\).
+\end{corollary}
+
+\begin{proof}
+From 1.13 it follows immediately that every closed submodule of \(M\) is a
+complement submodule of \(M\).
+
+Conversely, let \(K\) be a complement submodule of \(M_R\).
+Then there exists \(N \leq M_R\) such that \(K\) is a complement of \(N\) in \(M\).
+Assume that \(K\) has a proper essential extension in \(M\); that is, there exists
+\(K' \leq M_R\) with \(K \ess K'\) and \(K \subsetneq K'\).
+By the maximality of \(K\) we have \(K' \cap N \neq 0\), and since \(K \ess K'\),
+it follows that
+\[
+K \cap K' \cap N \neq 0,
+\]
+contradiction.
+\end{proof}
+
+\begin{corollary}
+Let \(N\) be a submodule of \(M_R\).
+If \(K\) is a complement of \(N\) in \(M\), then:
+\begin{enumerate}
+  \item \((N + K) \ess M_R\).
+  \item The canonical morphism \(\pi_K \circ i_N : N \to M/K\) is an essential monomorphism.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(1) Let \(x \in M \setminus \{0\}\).
+If \(x \notin K\), then \(K + Rx \neq K\) and hence
+\(N \cap (K + Rx) \neq 0\).
+Let \(y \in N \cap (K + Rx)\), \(y \neq 0\).
+There exist \(z \in K\) and \(r \in R\) such that \(y = z + rx\).
+If \(rx = 0\), then \(y = z\) and, since \(N \cap K = 0\), we obtain \(y = 0\),
+a contradiction.
+Thus \(rx \neq 0\) and, because \(rx = y - z\), we have \(rx \in N + K\),
+which shows that \((N + K) \ess M_R\).
+
+(2) We have \(\mathrm{Im}(\pi_K \circ i_N) = (N + K)/K\).
+Let \(L/K\) be a non-zero submodule of \(M/K\).
+Then
+\[
+\frac{N + K}{K} \cap \frac{L}{K}
+   = \frac{(N + K) \cap L}{K}
+   = \frac{N \cap L + K}{K}.
+\]
+Since \(K\) is a complement of \(N\), we have \(N \cap L \neq 0\), and hence
+\[
+\frac{N \cap L + K}{K} \neq 0,
+\]
+which shows that \(\pi_K \circ i_N\) is an essential monomorphism.
+\end{proof}
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
