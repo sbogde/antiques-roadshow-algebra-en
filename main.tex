@@ -975,7 +975,6 @@ M \arrow[dl,dashed,"g"] \\
 \]
 \end{proof}
 
-2.1.2 Proposition
 
 \begin{proposition}
 Let \((M_\alpha)_{\alpha \in \Lambda}\) be a family of \(R\)-modules and
@@ -996,7 +995,129 @@ Given a morphism \(f : N \to P\), the morphisms
 \(\pi_\alpha \circ f : N \to M_\alpha\) can be extended to
 \(g_\alpha : M \to M_\alpha\).
 There exists \(g : M \to P\) such that \(g_{\mid N} = f\).
+
+
+
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r,""] \arrow[d,"f"'] &
+M \arrow[dr,"g_\alpha"] \arrow[dl,"g"'] & \\
+& P \arrow[rr,"\pi_\alpha"] & & M_\alpha
+\end{tikzcd}
+\]
+
+\noindent\("\Rightarrow"\) Let \(\forall \alpha \in \Lambda\) and \(f : N \to M_\alpha\).
+Considering the canonical inclusion
+\(\varepsilon_\alpha : M_\alpha \to P\),
+since \(P\) is \(M\)-injective, there exists \(g : M \to P\) which extends
+\(\varepsilon_\alpha \circ f : N \to P\).
+Then \(\varepsilon_\alpha : M_\alpha \to P\) extends \(f\) and hence
+\(M_\alpha\) is \(M\)-injective.
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r] \arrow[d,"f"'] &
+M \arrow[dddl,bend left=15,"g"'] \arrow[dddl,bend left=45,"\pi_\alpha g"] \\
+& M_\alpha \arrow[d,"\varepsilon_\alpha"'] & \\
+& P \arrow[d,"\pi_\alpha"'] & \\
+& M_\alpha &
+\end{tikzcd}
+\]
+
 \end{proof}
+
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+  \item Let \((Q_\alpha)_{\alpha \in \Lambda}\) be a family of \(R\)-modules.
+        Then \(\prod_{\alpha \in \Lambda} Q_\alpha\) is injective
+        if and only if each \(Q_\alpha\) is injective for every \(\alpha\in\Lambda\).
+  \item The module \(Q_1 \oplus Q_2\) is an injective \(R\)-module if and only if
+        each \(Q_i\) is injective for \(i=1,2\).
+        In particular, a direct summand of an injective module is injective.
+\end{enumerate}
+\end{corollary}
+
+\begin{proposition}
+Let \(Q\) be an \(R\)-module.
+\begin{enumerate}
+  \item If \(0 \to M' \xrightarrow{f} M \xrightarrow{g} M'' \to 0\) is
+        an exact sequence of \(R\)-modules and \(Q\) is \(M\)-injective,
+        then \(Q\) is \(M'\)-injective and \(M''\)-injective.
+  \item If \((M_\alpha)_{\alpha \in \Lambda}\) is a family of submodules of \(M\)
+        such that \(M = \sum_{\alpha\in\Lambda} M_\alpha\) and
+        \(Q\) is \(M_\alpha\)-injective for every \(\alpha\), then \(Q\) is \(M\)-injective.
+  \item Let \((N_\alpha)_{\alpha\in\Lambda}\) be a family of \(R\)-modules.
+        Then \(Q\) is \(\bigoplus_{\alpha\in\Lambda} N_\alpha\)-injective
+        if and only if \(Q\) is \(N_\alpha\)-injective for every \(\alpha\in\Lambda\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+To show that \(Q\) is \(M'\)-injective, we consider \(N\) a submodule of
+\(M'\) and \(\varphi : N \rightarrow Q\) a morphism of \(R\)-modules.
+Since \(Q\) is \(M\)-injective, there exists \(\phi : M \to Q\) such that
+\(g \circ f\!\mid_{N} = \varphi\), and hence \(\psi \circ f : M' \to Q\) is a morphism
+which extends \(\varphi\).
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+N \arrow[r] \arrow[d,"\varphi"'] &
+M' \arrow[r,"f"] \arrow[dl] &
+M \arrow[dll,bend left=35,"\psi"'] \\
+& Q & &
+\end{tikzcd}
+\]
+
+Let \(h : L \to M''\) be a monomorphism. We may assume, without loss of generality,
+that \(M' \le M\) and \(M'' = M / M'\). Since \(L \cong h(L) \le M''\), there exist
+\(P \le M\), \(M' \subseteq P\) such that \(h(L) = P / M'\) and hence \(L \cong P/M'\).
+We obtain the commutative diagram:
+
+\[
+\begin{tikzcd}
+& & 0 \arrow[d] & 0 \arrow[d] & \\
+0 \arrow[r] &
+M' \arrow[r] \arrow[d] &
+P \arrow[r] \arrow[d] &
+L \arrow[r] \arrow[d,"h"] &
+0 \\
+0 \arrow[r] &
+M' \arrow[r] &
+M \arrow[r] &
+M'' \arrow[r] &
+0
+\end{tikzcd}
+\]
+
+Since \(Q\) is \(M\)-injective, applying the functor \(\Hom(-,Q)\) we obtain
+the commutative diagram:
+
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+\Hom(M'',Q) \arrow[r] \arrow[d,"h^{*}"'] &
+\Hom(M,Q) \arrow[r] \arrow[d] &
+\Hom(M',Q) \arrow[r] \arrow[d,equal] &
+0 \\
+0 \arrow[r] &
+\Hom(L,Q) \arrow[r] &
+\Hom(P,Q) \arrow[r] \arrow[d] &
+\Hom(M',Q) &
+\\
+& & 0 & &
+\end{tikzcd}
+\]
+
+We obtain that \(h^{*} = \Hom(h,Q)\) is an epimorphism, which shows that
+\(Q\) is \(M''\)-injective.
+\end{proof}
+
+
 
 
 % Further chapters will be added as we progress.
