@@ -1573,6 +1573,134 @@ E\!\left(\bigoplus_{i=1}^{n} M_i\right)
 \end{proof}
 
 
+% --- English: Theorem 2.2.6 + proof ---
+
+\begin{theorem}
+Let \(Q\) and \(M\) be two \(R\)-modules. Then \(Q\) is \(M\)-injective if and only if
+\(f(M) \subseteq Q\) for every \(f \in \Hom(E(M),E(Q))\).
+\end{theorem}
+
+\begin{proof}
+“\(\Rightarrow\)” Let \(f \in \Hom(E(M),E(Q))\) and set
+\[
+K := \{\,m \in M \mid f(m) \in Q\,\}.
+\]
+Since \(Q\) is \(M\)-injective, there exists a morphism \(\bar{f} : M \to Q\) such that
+\(\bar{f}\!\mid_{K} = f\!\mid_{K}\).
+We claim that
+\[
+Q \cap (\bar{f}-f)(M) = 0.
+\]
+Take \(x \in Q\) and \(m \in M\) with \(x = (\bar{f}-f)(m)\).
+Then
+\[
+f(m) = \bar{f}(m) - x \in Q,
+\]
+so \(m \in K\).
+Hence
+\[
+x = \bar{f}(m) - f(m) = f(m) - f(m) = 0,
+\]
+and therefore \(Q \cap (\bar{f}-f)(M) = 0\).
+Since \(Q\) is an essential submodule of \(E(Q)\), it follows that
+\((\bar{f}-f)(M) = 0\).
+Thus \(f(M) = \bar{f}(M) \subseteq Q\).
+
+“\(\Leftarrow\)” As \(E(Q)\) is injective, it is enough to work with
+\(f \in \Hom(M,E(Q))\).
+Let \(N\) be a submodule of \(M\) and \(g : N \to Q\) a morphism of \(R\)-modules.
+Because \(E(Q)\) is injective, there exists \(\tilde{g} : M \to E(Q)\) such that
+\(\tilde{g}\!\mid_{N} = i \circ g\), where \(i : Q \to E(Q)\) is the canonical
+injection.
+By hypothesis, \(\tilde{g}(M) \subseteq Q\), so identifying \(\tilde{g}\) with its
+corestriction to \(Q\) we obtain a morphism \(h : M \to Q\) with
+\(h\!\mid_{N} = g\).
+Therefore \(Q\) is \(M\)-injective.
+\end{proof}
+
+
+% --- English: Corollary 2.2.7 ---
+
+\begin{corollary}
+An \(R\)-module \(Q\) is quasi-injective if and only if
+\(f(Q) \subseteq Q\) for every \(f \in \End(E(Q))\).
+\end{corollary}
+
+
+% --- English: Theorem 2.2.8 (Matlis–Bass) + proof ---
+
+\begin{theorem}[Matlis--Bass]
+Let \(R\) be a ring. Then \(R\) is right noetherian if and only if,
+for every simple right \(R\)-module \(S_i\) (\(i \geq 1\)),
+\[
+Q := \bigoplus_{i=1}^{\infty} E(S_i)
+\]
+is an injective right \(R\)-module.
+\end{theorem}
+
+\begin{proof}
+“\(\Rightarrow\)” Let \(L\) be a right ideal of \(R\),
+\[
+Q = \bigoplus_{i=1}^{\infty} E(S_i)
+\]
+and let \(f : L \to Q\) be a morphism of right \(R\)-modules.
+There exist elements \(a_1,\dots,a_n \in L\) such that
+\[
+L = a_1 R + a_2 R + \cdots + a_n R.
+\]
+Clearly, there is \(m \geq 1\) with
+\(f(a_k) \in \bigoplus_{j=1}^{m} E(S_j)\) for all \(k = 1,\dots,n\), hence
+\[
+\Im f \subseteq \bigoplus_{j=1}^{m} E(S_j).
+\]
+Since \(\bigoplus_{j=1}^{m} E(S_j)\) is injective, there exists
+\(g : R \to \bigoplus_{j=1}^{m} E(S_j)\) such that \(g\!\mid_{L} = f\).
+Let \(\bar{f} = i \circ g\), where
+\(i : \bigoplus_{j=1}^{m} E(S_j) \to Q\) is the canonical injection.
+Then \(\bar{f}\!\mid_{L} = f\), so \(Q\) is injective.
+
+“\(\Leftarrow\)” Suppose that \(R\) is not right noetherian.
+Then there exists a strictly ascending chain of finitely generated right ideals:
+\[
+L_1 \subsetneq L_2 \subsetneq \cdots \subsetneq L_n \subsetneq \cdots .
+\]
+By Krull’s lemma, for every \(n \geq 1\) there exists a maximal submodule
+\(M_n \subsetneq L_n\) such that
+\[
+L_{n-1} \subseteq M_n \quad \text{for all } n \geq 2.
+\]
+Set
+\[
+L := \bigcup_{k=1}^{\infty} L_k, \qquad
+\pi_k : L_k \longrightarrow L_k/M_k
+\]
+for the canonical projections, and put
+\[
+E_k := E(L_k/M_k) \quad \text{for each } k \geq 1.
+\]
+Then
+\[
+E := \bigoplus_{k=1}^{\infty} E_k
+\]
+is injective, and
+\[
+f : L \longrightarrow E, \qquad
+f(a) = \sum_{k=1}^{\infty} \pi_k(a)
+\]
+is well defined.
+There exists an element
+\(x \in E_1 \oplus \cdots \oplus E_n\) such that
+\(f(a) = x a\) for all \(a \in L\).
+It follows that \(\pi_k(a) = 0\) for every \(k \geq n+1\),
+that is, \(a \in M_k\) for all \(k \geq n+1\).
+Hence
+\[
+L \subseteq M_{n+1} \subsetneq L_{n+1} \subseteq M_{n+2} \subsetneq L_{n+2}
+\subseteq \cdots \subseteq L,
+\]
+a contradiction.
+Therefore \(R\) is right noetherian.
+\end{proof}
 
 
 % Further chapters will be added as we progress.
