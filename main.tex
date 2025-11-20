@@ -1115,8 +1115,125 @@ the commutative diagram:
 
 We obtain that \(h^{*} = \Hom(h,Q)\) is an epimorphism, which shows that
 \(Q\) is \(M''\)-injective.
+
+\medskip
+
+2) Let \(N\) be a submodule of \(M\) and \(f : N \to Q\) a morphism of \(R\)-modules.
+Consider the set
+\[
+\mathfrak{S} = \{(L,h) \mid N \le L \le M,\; h : L \to Q,\; h\!\mid_{N} = f\}.
+\]
+Since \((N,f) \in \mathfrak{S}\), we have \(\mathfrak{S} \ne \varnothing\).
+Define on \(\mathfrak{S}\) the order relation
+\((L_1,h_1) \preccurlyeq (L_2,h_2)\) if and only if
+\(L_1 \le L_2\) and \(h_2\!\mid_{L_1} = h_1\).
+One checks that \(\mathfrak{S}\) is inductive and, by Zorn’s lemma,
+there exists a maximal element \((L_0,g_0)\) of \(\mathfrak{S}\).
+To show that \(L_0 = M\) it is enough to prove that
+\(M_\alpha \le L_0\) for every \(\alpha \in \Lambda\).
+
+Consider the diagram
+\[
+\begin{tikzcd}
+0 \arrow[r] &
+L_0 \cap M_\alpha \arrow[r,"i_\alpha"] \arrow[d,"i_0"'] &
+M_\alpha \arrow[ddl,"h_\alpha"] \\
+& L_0 \arrow[d,"g_0"'] & \\
+& Q &
+\end{tikzcd}
+\]
+
+from which it follows that there exists \(h_\alpha : M_\alpha \to Q\) such that
+\(h_\alpha \circ i_\alpha = g_0 \circ i_\alpha\).
+Define
+\(h^{*} : L_0 + M_\alpha \to Q\) by
+\(h^{*}(l + m_\alpha) = g_0(l) + h_\alpha(m_\alpha)\),
+for all \(l \in L_0\), \(m_\alpha \in M_\alpha\).
+If \(l + m_\alpha = 0\), then \(l = -m_\alpha \in L_0 \cap M_\alpha\) and hence
+\(h^{*}(l + m_\alpha) = g_0(l) + h_\alpha(l)\), which shows that \(h^{*}\) is well defined.
+Thus \((L_0 + M_\alpha, h^{*}) \in \mathfrak{S}\), and since
+\((L_0,g_0) \preccurlyeq (L_0 + M_\alpha, h^{*})\),
+by the maximality of \((L_0,g_0)\) we obtain
+\(L_0 = L_0 + M_\alpha\), i.e. \(M_\alpha \le L_0\) for every \(\alpha \in \Lambda\).
+
+3) “\(\Rightarrow\)” Since \(N_\alpha \le N\) and \(Q\) is \(N\)-injective,
+it follows that \(Q\) is \(N_\alpha\)-injective for every \(\alpha \in \Lambda\).
+
+“\(\Leftarrow\)” Let \(N'_\alpha = i_\alpha(N_\alpha)\).
+Since \(Q\) is \(N_\alpha\)-injective and \(N'_\alpha \cong N_\alpha\),
+we see that \(Q\) is \(N'_\alpha\)-injective.
+Now apply (2).
 \end{proof}
 
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+  \item The module \(Q_1 \oplus Q_2\) is a quasi-injective \(R\)-module
+        if and only if each \(Q_i\) is \(Q_j\)-injective for all \(i,j = 1,2\).
+        In particular, a direct summand of a quasi-injective module is quasi-injective.
+  \item The module \(Q^{n}\) is quasi-injective over \(R\) if and only if
+        \(Q\) is quasi-injective.
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+Let \(Q\) and \(M\) be two \(R\)-modules.
+Then \(Q\) is \(M\)-injective if and only if \(Q\) is \(mR\)-injective
+for every \(m \in M\).
+\end{corollary}
+
+\begin{proof}
+The implication “\(\Rightarrow\)” is clear.
+
+For “\(\Leftarrow\)”, since \(M = \sum_{m \in M} mR\), it follows from 2.1.4(2)
+that \(Q\) is \(M\)-injective.
+\end{proof}
+
+\begin{theorem}[Baer’s criterion]\label{thm:Baer-en}
+For an \(R\)-module \(Q\) the following statements are equivalent:
+\begin{enumerate}
+  \item \(Q\) is injective.
+  \item \(Q\) is \(R\)-injective.
+  \item For every right ideal \(I\) of \(R\) and every morphism \(f : I \to Q\)
+        there exists \(x \in Q\) such that \(f(a) = xa\) for all \(a \in I\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The implication \((1) \Rightarrow (2)\) is obvious.
+
+\((2) \Rightarrow (1)\).
+Let \(M\) be an \(R\)-module and \(x \in M\).
+Since \(\varphi_x : R \to xR\), \(\varphi_x(a) = xa\) for all \(a \in R\),
+is a surjective morphism of \(R\)-modules, it follows that
+\(R / \Ker \varphi_x \cong xR\).
+As \(Q\) is \(R\)-injective, 2.1.4(1) implies that
+\(Q\) is \(R / \Ker \varphi_x\)-injective, and hence
+\(Q\) is \(xR\)-injective for every \(x \in M\).
+Therefore, by 2.1.6 we obtain that \(Q\) is \(M\)-injective.
+
+\((2) \Rightarrow (3)\).
+Let \(I\) be a right ideal of \(R\) and \(f : I \to Q\).
+There exists \(g : R \to Q\) such that \(g\!\mid_{I} = f\).
+Put \(x = g(1) \in Q\). Then
+\(f(a) = g(a) = ag(1) = xa\) for all \(a \in I\).
+
+\((3) \Rightarrow (2)\).
+Suppose that for a morphism \(f : I \to Q\) there exists
+\(x \in Q\) with \(f(a) = xa\) for all \(a \in I\).
+Define \(g : R \to Q\) by \(g(r) = xr\) for all \(r \in R\).
+Then clearly \(g\!\mid_{I} = f\).
+\end{proof}
+
+\begin{definition}
+\leavevmode
+\begin{enumerate}
+  \item An \(R\)-module \(Q\) is called \emph{divisible} if for every \(y \in Q\)
+        and every \(a \in R\) which is not a zero divisor, there exists \(x \in Q\)
+        such that \(ax = y\).
+        It is easily seen that any factor module of a divisible module is divisible.
+\end{enumerate}
+\end{definition}
 
 
 
