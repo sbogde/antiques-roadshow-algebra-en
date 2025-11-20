@@ -1232,8 +1232,149 @@ Then clearly \(g\!\mid_{I} = f\).
         and every \(a \in R\) which is not a zero divisor, there exists \(x \in Q\)
         such that \(ax = y\).
         It is easily seen that any factor module of a divisible module is divisible.
+   \item A commutative integral domain is called a \emph{PID ring}
+        (principal ideal domain) if every ideal of it is principal.
 \end{enumerate}
 \end{definition}
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+  \item Every injective module is divisible.
+  \item Let \(R\) be a PID.
+    \begin{enumerate}
+      \item[(i)] If \(Q\) is an \(R\)-module, then \(Q\) is injective
+                 if and only if it is divisible.
+      \item[(ii)] If \(I\) is a non-zero ideal of \(R\), then \(R/I\) is
+                  a quasi-injective \(R\)-module. In particular,
+                  \(\mathbb{Z}_n\) is a quasi-injective \(\mathbb{Z}\)-module
+                  for every \(n \ge 1\).
+    \end{enumerate}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\leavevmode
+
+\noindent 1) Let \(Q\) be a divisible \(R\)-module, \(y \in Q\) and
+\(a \in R\) a non–zero divisor. Define
+\(f : aR \to Q\) by \(f(ax) = yx\) for all \(x \in R\).
+Since \(a\) is not a zero divisor, \(f\) is well defined.
+By Baer’s criterion there exists \(x \in Q\) such that
+\(f(\lambda) = x\lambda\) for all \(\lambda \in aR\).
+In particular \(y = f(a) = f(a\cdot 1) = xa\); hence \(Q\) is divisible.
+
+\medskip
+
+\noindent 2)(i) The implication “\(\Rightarrow\)” follows immediately from (1).
+
+\smallskip
+
+\noindent “\(\Leftarrow\)” Let \(Q\) be a divisible \(R\)-module and
+\(I\) a right ideal of \(R\).
+Then there exists \(a \in R\) with \(I = aR\).
+Given a morphism of \(R\)-modules \(f : I \to Q\),
+choose \(x \in Q\) with \(f(a) = xa\). For any \(r \in R\),
+\(f(ar) = f(a)r = xar\), so by Baer’s criterion \(Q\) is injective.
+
+\medskip
+
+\noindent 2)(ii) Let \(I = aR\) and \(J = bR\) be non-zero ideals of \(R\)
+with \(I \subseteq J\), and let
+\(f : J/I \to R/I\) be a morphism of \(R\)-modules.
+There exists \(c \in R\) such that \(a = bc\).
+Write \(f(\widehat{b}) = \widehat{x} \in R/I\).
+Then \(xc \in I = aR\), so there is \(a_1 \in R\) with \(xc = aa_1\),
+and hence \(x = ba_1\).
+
+Define \(g : R/I \to R/I\) by
+\(g(\widehat{r}) = \widehat{a_1 r}\) for all \(r \in R\).
+Then \(g\) is an \(R\)-module homomorphism and
+\(g(\widehat{b}) = \widehat{x}\), so \(g\!\mid_{J/I} = f\).
+Thus \(R/I\) is quasi-injective.  
+In particular, for \(R = \mathbb{Z}\) and \(I = n\mathbb{Z}\) we obtain that
+\(\mathbb{Z}_n\) is a quasi-injective \(\mathbb{Z}\)-module for every \(n \ge 1\).
+\end{proof}
+
+\begin{corollary}
+An abelian group \(G\) is an injective \(\mathbb{Z}\)-module
+if and only if \(G\) is divisible.
+\end{corollary}
+
+
+
+\begin{corollary}
+\leavevmode
+\begin{enumerate}
+  \item \(\mathbb{Q}\) and \(\mathbb{Z}_{p^\infty}\) are injective \(\mathbb{Z}\)-modules.
+  \item Any direct sum of injective \(\mathbb{Z}\)-modules is an injective
+        \(\mathbb{Z}\)-module.
+  \item Any factor group of an injective \(\mathbb{Z}\)-module is injective.
+\end{enumerate}
+\end{corollary}
+
+
+
+\begin{lemma}
+Let \(A,S,T\) be rings and let \( {}_{A}M_{S}, {}_{A}N_{T}\) be bimodules.
+Then \(\Hom_A(M,N)\) has a structure of left \(S\)-module and right \(T\)-module
+given by
+\[
+  (s \cdot f)(x) = f(xs), \qquad (f \cdot t)(x) = f(x)t,
+\]
+for \(s \in S\), \(t \in T\), \(x \in M\), \(f \in \Hom_A(M,N)\).
+\end{lemma}
+
+\begin{proof}
+Let \(a,b \in A\) and \(x,y \in M\).
+Then
+\[
+ (s \cdot f)(ax+by) = f((ax+by)s)
+   = f((ax)s) + f((by)s)
+   = af(xs) + bf(ys)
+   = a(s \cdot f)(x) + b(s \cdot f)(y),
+\]
+so \(s \cdot f \in \Hom_A(M,N)\). Similarly \(f \cdot t \in \Hom_A(M,N)\).
+
+For \(s,s' \in S\) and \(f,g \in \Hom_A(M,N)\) we have
+\begin{align}
+ (s \cdot (f+g))(x)
+   &= (f+g)(xs)
+    = f(xs)+g(xs)
+    = (s \cdot f)(x)+(s \cdot g)(x),
+    \tag{1} \\
+ ((s+s') \cdot f)(x)
+   &= f(x(s+s'))
+    = f(xs+xs')
+    = f(xs)+f(xs')
+    = (s \cdot f)(x)+(s' \cdot f)(x),
+    \tag{2} \\
+ ((ss') \cdot f)(x)
+   &= f(xss')
+    = f((xs)s')
+    = (s' \cdot f)(xs)
+    = (s \cdot (s' \cdot f))(x),
+    \tag{3} \\
+ (1_S \cdot f)(x)
+   &= f(x1_S) = f(x).
+    \tag{4}
+\end{align}
+From (1)–(4) we see that \(\Hom_A(M,N)\) is a left \(S\)-module.
+A similar computation shows that \(\Hom_A(M,N)\) is a right \(T\)-module.
+Moreover,
+\(((s \cdot f) \cdot t)(x) = (s \cdot f)(xt) = f(xts)t\)
+and
+\((s \cdot (f \cdot t))(x) = f(xts)t\),
+so the two actions commute and \(\Hom_A(M,N)\) is an \(S\)–\(T\) bimodule.
+\end{proof}
+
+
+\begin{proposition}[Proposition (Eckmann–Schopf)]
+Let \(Q\) be a divisible abelian group. Then the left \(R\)-module
+\(\Hom_{\mathbb{Z}}(R,Q)\) is injective.
+\end{proposition}
+
+% The proof starts on the next page.
 
 
 
