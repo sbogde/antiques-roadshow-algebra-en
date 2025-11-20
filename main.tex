@@ -1369,12 +1369,209 @@ so the two actions commute and \(\Hom_A(M,N)\) is an \(S\)–\(T\) bimodule.
 \end{proof}
 
 
-\begin{proposition}[Proposition (Eckmann–Schopf)]
+\begin{proposition}[Eckmann–Schopf]
 Let \(Q\) be a divisible abelian group. Then the left \(R\)-module
 \(\Hom_{\mathbb{Z}}(R,Q)\) is injective.
 \end{proposition}
 
-% The proof starts on the next page.
+\begin{proof}
+By the previous lemma, $\Hom_{\mathbb{Z}}(R,Q)$ carries a structure
+of left $R$–module given by
+\[
+(r \cdot f)(a) = f(ar), \qquad \forall a,r \in R,\ f \in \Hom_{\mathbb{Z}}(R,Q).
+\]
+Let $I$ be a left ideal of $R$ and
+$h : I \to \Hom_{\mathbb{Z}}(R,Q)$ a morphism of left $R$–modules.
+Define
+\[
+\gamma : \mathbb{Z}I \longrightarrow \mathbb{Z}Q, \qquad
+\gamma(a) = h(a)(1).
+\]
+Then $\gamma$ is a morphism of $\mathbb{Z}$–modules.
+Since $Q$ is $\mathbb{Z}$–injective, there exists
+$\widetilde{\gamma} : \mathbb{Z}R \to \mathbb{Z}Q$ such that
+$\widetilde{\gamma}_{\mid I} = \gamma$.
+For $a \in I$ and $r \in R$ we have
+\[
+(a \cdot \widetilde{\gamma})(r)
+  = \widetilde{\gamma}(ra)
+  = h(ra)(1)
+  = (r \cdot h(a))(1)
+  = h(a)(r),
+\]
+hence $h(a) = a \cdot \widetilde{\gamma}$ for all $a \in I$.
+By Baer’s criterion, $\Hom_{\mathbb{Z}}(R,Q)$ is an injective
+left $R$–module.
+\end{proof}
+
+
+\begin{proposition}
+Every left $R$–module $M$ can be embedded into an injective
+left $R$–module.
+\end{proposition}
+
+\begin{proof}
+There exists a free abelian group $\mathbb{Z}^{(A)}$ and a surjective
+$\mathbb{Z}$–morphism $f : \mathbb{Z}^{(A)} \to M$.
+Hence
+\[
+\mathbb{Z}M \cong \mathbb{Z}^{(A)}/\ker f
+  \subseteq \mathbb{Q}^{(A)}/\ker f,
+\]
+and therefore there is a divisible abelian group $G$ with
+$\mathbb{Z}M \subseteq \mathbb{Z}G$.
+Applying the functor $\Hom_{\mathbb{Z}}(R,-)$ we obtain a monomorphism
+\[
+{}_R M \cong \Hom_{\mathbb{Z}}(R,M)
+   \hookrightarrow \Hom_{\mathbb{Z}}(R,G).
+\]
+Since $G$ is divisible, Proposition~2.1.13 implies that
+$\Hom_{\mathbb{Z}}(R,G)$ is an injective left $R$–module.
+Thus $M$ embeds into an injective left $R$–module.
+\end{proof}
+
+
+\begin{proposition}
+Let $Q$ be an $R$–module. Then $Q$ is injective if and only if every
+short exact sequence
+\[
+0 \longrightarrow Q \xrightarrow{f} M \xrightarrow{g} M' \longrightarrow 0
+\]
+splits.
+\end{proposition}
+
+\begin{proof}
+“$\Rightarrow$”.
+Assume $Q$ is injective.
+Exactness implies that $f$ is a monomorphism.
+By injectivity of $Q$ there exists $h : M \to Q$ with
+$h f = \mathrm{id}_Q$, hence the sequence splits.
+
+“$\Leftarrow$”.
+By Proposition~2.1.14 there is an injective $R$–module $Q'$ and a
+monomorphism $i : Q \to Q'$.
+Consider the exact sequence
+\[
+0 \longrightarrow Q \xrightarrow{i} Q' \longrightarrow Q'/i(Q) \longrightarrow 0.
+\]
+By the hypothesis this sequence splits, so $Q$ is a direct summand of $Q'$.
+A direct summand of an injective module is injective, therefore $Q$ is injective.
+\end{proof}
+
+\section{Injective envelopes}
+
+\begin{definition}
+Let $M$ be an $R$–module.
+A pair $(E,i)$ is called an \emph{injective envelope} of $M$ if
+$E$ is injective and $i : M \to E$ is an essential monomorphism.
+\end{definition}
+
+\begin{proposition}
+Let $Q$ be an injective $R$–module.
+Then every complement submodule of $Q$ is a direct summand of $Q$.
+\end{proposition}
+
+\begin{proof}
+Let $K$ be a submodule of $Q$ and $N$ a complement of $K$ in $Q$,
+that is, $K \cap N = 0$ and $K+N$ is an essential submodule of $Q$.
+Then $(K+N)/N \cong Q/N$.
+Define $g : (K+N)/N \to Q$ by
+\[
+g((x+y)+N) = x, \qquad x \in K,\ y \in N.
+\]
+Since $K \cap N = 0$, $g$ is well defined and injective.
+As $Q$ is injective, there exists $h : Q/N \to Q$ with
+$h_{\mid (K+N)/N} = g$.
+Because $(K+N)/N \cong Q/N$ and $g$ is a monomorphism, $h$ is also a
+monomorphism.
+We have
+$K = \mathrm{Im}\,g = h((K+N)/N) \subseteq h(Q/N)$.
+As $K$ is a closed submodule, it follows that $K = h(Q/N)$.
+Since $h$ is a monomorphism, $(K+N)/N = Q/N$, hence $K+N = Q$.
+Thus $K$ is a direct summand of $Q$.
+\end{proof}
+
+\begin{theorem}[Eckmann--Schopf]
+Every $R$–module $M$ has an injective envelope, unique up to isomorphism.
+\end{theorem}
+
+\begin{proof}
+By Proposition~2.1.14 there exists an injective $R$–module $Q$ with
+$M \le Q$.
+Let $E$ be a maximal essential extension of $M$ in $Q$.
+Then $E$ is a complement submodule of $Q$, and by the previous
+proposition $E$ is injective.
+Hence $(E,i)$, where $i : M \hookrightarrow E$ is the inclusion,
+is an injective envelope of $M$.
+
+For uniqueness, let $(E_1,i_1)$ and $(E_2,i_2)$ be two injective
+envelopes of $M$.
+Since $E_2$ is injective, there exists $f : E_1 \to E_2$ with
+$f i_1 = i_2$.
+The map $i_2$ is a monomorphism and $i_1$ is an essential monomorphism,
+so (using 1.4) $f$ is a monomorphism.
+Thus $E_1 \cong f(E_1)$ and $E_2 = f(E_1) \oplus E_3$ for some submodule
+$E_3$.
+But $i_2(M) \subseteq f(E_1)$, hence $i_2(M) \cap E_3 = 0$.
+Since $i_2$ is essential, we must have $E_3 = 0$, so $E_2 = f(E_1)$ and
+$f$ is an isomorphism.
+\end{proof}
+
+In practice we fix one representative of this isomorphism class and
+denote it by $E(M)$, with $M \ess E(M)$.
+
+\begin{proposition}
+Let $M$ be an $R$–module and $i : M \to Q$ a monomorphism with $Q_R$
+injective.
+The following statements are equivalent:
+\begin{enumerate}
+  \item $(Q,i)$ is an injective envelope of $M$;
+  \item for every monomorphism $f : M \to Q'$ with $Q'$ injective,
+        there exists a monomorphism $g : Q \to Q'$ such that $g i = f$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$(1) \Rightarrow (2)$.
+Let $f : M \to Q'$ be a monomorphism with $Q'$ injective.
+By injectivity of $Q'$ there is $u : Q \to Q'$ with $u i = f$.
+Because $i$ is an essential monomorphism and $Q'$ is injective,
+the image $u(Q)$ is a complement of $f(M)$; by the definition of
+injective envelope this forces $u$ to be a monomorphism.
+Set $g = u$.
+
+$(2) \Rightarrow (1)$.
+Let $(E(M),j)$ be an injective envelope of $M$.
+Applying (2) to $f=j$ we obtain a monomorphism
+$g : Q \to E(M)$ with $g i = j$.
+Since $j$ is an essential monomorphism, it follows that $i$ is also
+essential; hence $(Q,i)$ is an injective envelope of $M$.
+\end{proof}
+
+
+\begin{proposition}
+For any family of right $R$–modules $M_1,M_2,\dots,M_n$ we have
+\[
+E\!\left(\bigoplus_{i=1}^{n} M_i\right)
+  \cong \bigoplus_{i=1}^{n} E(M_i).
+\]
+\end{proposition}
+
+\begin{proof}
+By 1.9, $\bigoplus_{i=1}^{n} E(M_i)$ is an essential extension of
+$\bigoplus_{i=1}^{n} M_i$.
+Moreover,
+\[
+\bigoplus_{i=1}^{n} E(M_i) \cong \prod_{i=1}^{n} E(M_i),
+\]
+so by 2.1.3 the module $\bigoplus_{i=1}^{n} E(M_i)$ is injective.
+By uniqueness of injective envelopes we obtain
+\[
+E\!\left(\bigoplus_{i=1}^{n} M_i\right)
+  \cong \bigoplus_{i=1}^{n} E(M_i).
+\]
+\end{proof}
+
 
 
 
