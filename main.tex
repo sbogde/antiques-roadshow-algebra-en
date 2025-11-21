@@ -943,17 +943,17 @@ g \circ i \circ \bar{u} = f
 \quad\text{and therefore}\quad
 g \circ u = f.
 \]
-
 \[
 \begin{tikzcd}
 0 \arrow[r] &
 M' \arrow[r,shift left=0.35ex,"\bar{u}"]
-   \arrow[dr,"f"'] &
+   \arrow[d,"f"'] &
 u(M') \arrow[r,hook,"i"] &
-M \arrow[dl,dashed,"g"] \\
-& & Q &
+M \arrow[dll,dashed,"g"] \\
+& Q &
 \end{tikzcd}
 \]
+
 
 \noindent\((3) \Rightarrow (2)\).
 Let \(N\) be a submodule of \(M\) and \(K\) a complement of \(N\) in \(M\).
@@ -967,10 +967,10 @@ There exists \(g : M \to Q\) such that \(g_{\mid N \oplus K} = h\), and hence
 \[
 \begin{tikzcd}
 0 \arrow[r] &
-N \arrow[r,hook] \arrow[dr,"f"'] &
-N \oplus K \arrow[r,hook] \arrow[d,"h"] &
-M \arrow[dl,dashed,"g"] \\
-& & Q &
+N \arrow[r,hook] \arrow[d,"f"'] &
+N \oplus K \arrow[r,hook] \arrow[dl,bend right=5,"h"] &
+M \arrow[dll,dashed,bend left=10,"g"] \\
+& Q &
 \end{tikzcd}
 \]
 \end{proof}
@@ -996,17 +996,16 @@ Given a morphism \(f : N \to P\), the morphisms
 \(g_\alpha : M \to M_\alpha\).
 There exists \(g : M \to P\) such that \(g_{\mid N} = f\).
 
-
-
-
 \[
 \begin{tikzcd}
 0 \arrow[r] &
-N \arrow[r,""] \arrow[d,"f"'] &
-M \arrow[dr,"g_\alpha"] \arrow[dl,"g"'] & \\
-& P \arrow[rr,"\pi_\alpha"] & & M_\alpha
+N \arrow[r,hook] \arrow[d,"f"'] &
+M \arrow[dl,bend left=5,"g"'] \arrow[ddl,bend left=5,"g_\alpha"] \\
+& P \arrow[d,"\pi_\alpha"'] & \\
+& M_\alpha &
 \end{tikzcd}
 \]
+
 
 \noindent\("\Rightarrow"\) Let \(\forall \alpha \in \Lambda\) and \(f : N \to M_\alpha\).
 Considering the canonical inclusion
@@ -1019,8 +1018,8 @@ Then \(\varepsilon_\alpha : M_\alpha \to P\) extends \(f\) and hence
 \[
 \begin{tikzcd}
 0 \arrow[r] &
-N \arrow[r] \arrow[d,"f"'] &
-M \arrow[dddl,bend left=15,"g"'] \arrow[dddl,bend left=45,"\pi_\alpha g"] \\
+N \arrow[r, hook] \arrow[d,"f"'] &
+M \arrow[ddl,bend left=1,"g"'] \arrow[dddl,bend left=9,"\pi_\alpha g"] \\
 & M_\alpha \arrow[d,"\varepsilon_\alpha"'] & \\
 & P \arrow[d,"\pi_\alpha"'] & \\
 & M_\alpha &
@@ -1068,7 +1067,7 @@ which extends \(\varphi\).
 0 \arrow[r] &
 N \arrow[r] \arrow[d,"\varphi"'] &
 M' \arrow[r,"f"] \arrow[dl] &
-M \arrow[dll,bend left=35,"\psi"'] \\
+M \arrow[dll,bend left=5,"\psi"'] \\
 & Q & &
 \end{tikzcd}
 \]
@@ -1082,7 +1081,7 @@ We obtain the commutative diagram:
 \begin{tikzcd}
 & & 0 \arrow[d] & 0 \arrow[d] & \\
 0 \arrow[r] &
-M' \arrow[r] \arrow[d] &
+M' \arrow[r] \arrow[d, equal] &
 P \arrow[r] \arrow[d] &
 L \arrow[r] \arrow[d,"h"] &
 0 \\
