@@ -1702,6 +1702,139 @@ Therefore \(R\) is right noetherian.
 \end{proof}
 
 
+
+\chapter{Direct Sums of Uniform (Co-irreducible) Modules}
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module and \(E(M)\) its injective envelope. Then the
+following statements are equivalent:
+\begin{enumerate}
+  \item \(E(M)\) is indecomposable.
+  \item If \(L\) and \(K\) are non–zero submodules of \(M\), then
+        \(L \cap K \neq 0\).
+  \item If \(x,y \in M\setminus\{0\}\), then there exist \(a,b \in R\) such that
+        \(0 \neq xa = yb\).
+  \item \(M\) is an essential extension of each of its non–zero submodules.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\((2) \Rightarrow (1)\).
+Assume that \(E(M) = L' \oplus K'\) with \(L'\) and \(K'\) non–zero submodules
+of \(E(M)\).
+Since \(M \ess E(M)\), we have \(L = L' \cap M \neq 0\) and
+\(K = K' \cap M \neq 0\), hence
+\[
+L \cap K = (L' \cap K') \cap M = 0,
+\]
+which contradicts (2).
+
+\smallskip
+\((1) \Rightarrow (2)\).
+Assume there exist non–zero submodules \(L,K \leq M\) such that
+\(L \cap K = 0\).
+Then \(E(L) \leq E(M)\) and \(K \cap E(L) = 0\) (otherwise, since
+\(L \subseteq E(L)\), we would have \(L \cap K \neq 0\)).
+The short exact sequence
+\[
+0 \longrightarrow E(L) \longrightarrow E(M) \longrightarrow E(M)/E(L)
+\longrightarrow 0
+\]
+splits because \(E(L)\) is injective, hence
+\(E(M) \cong E(L) \oplus E(M)/E(L)\).
+It follows that
+\[
+0 = K \cap E(L) = K \cap E(M) = K,
+\]
+a contradiction.
+
+The equivalences \((2) \Leftrightarrow (3)\) and \((2) \Leftrightarrow (4)\) are
+straightforward.
+\end{proof}
+
+
+\begin{definition}
+An \(R\)-module \(M\) satisfying any of the equivalent conditions above is
+called \emph{uniform} (or \emph{co-irreducible}).
+Let \(M\) be an \(R\)-module and \(N\) a proper submodule of \(M\).
+If \(M/N\) is uniform, we say that \(N\) is \emph{irreducible in \(M\)}.
+Clearly, \(N\) is irreducible in \(M\) if and only if from an equality
+\(N = P \cap Q\) with \(P,Q \le M\) it follows that \(N = P\) or \(N = Q\).
+\end{definition}
+
+\begin{example*}
+\leavevmode
+\begin{enumerate}
+  \item Every simple module is clearly uniform.
+  \item \(\mathbb{Z}\) is a uniform \(\mathbb{Z}\)-module.
+  \item By Proposition~3.1, an injective module is indecomposable if and only
+        if it is uniform. In particular, if \(M\) is a uniform
+        \(R\)-module, then \(E(M)\) is uniform. Hence the
+        \(\mathbb{Z}\)-modules \(\mathbb{Q}\) and \(\mathbb{Z}_{p^\infty}\)
+        are uniform.
+  \item The \(\mathbb{Z}\)-module \(\mathbb{Z}_n\) is uniform if and only if
+        \(n\) is a power of a prime. If \(n = p^k\) with \(p \ge 2\) and
+        \(k \ge 1\), then
+        \(\langle p^m \rangle \subseteq \langle p^i \rangle \cap \langle p^j \rangle\)
+        for all \(i,j \in \{1,\dots,k-1\}\), where \(m = \min(i,j)\), so
+        \(\mathbb{Z}_{p^k}\) is uniform.
+        Conversely, assume that \(\mathbb{Z}_n\) is uniform and write
+        \(n = p_1^{\alpha_1}\cdots p_s^{\alpha_s}\) as the factorisation of \(n\)
+        into primes. If \(s \ge 2\), then
+        \[
+          \langle p_1^{\alpha_1}\cdots p_{s-1}^{\alpha_{s-1}} \rangle
+          + \mathbb{Z}
+          \quad\text{and}\quad
+          \langle p_s^{\alpha_s} \rangle + \mathbb{Z}
+        \]
+        are non–zero submodules whose intersection is zero, a contradiction.
+        Hence \(s = 1\) and \(n\) is a prime power.
+\end{enumerate}
+\end{example*}
+
+
+\begin{proposition}
+Let \(M\) be an \(R\)-module and \(N\) a proper submodule of \(M\).
+If \(x \in M \setminus N\), then there exists an irreducible submodule
+\(P \le M\) such that \(N \subseteq P\) and \(x \notin P\).
+\end{proposition}
+
+\begin{proof}
+Set
+\[
+\mathfrak{S} = \{\,N' \le M \mid N \subseteq N' \text{ and } x \notin N'\,\}.
+\]
+The set \(\mathfrak{S}\), ordered by inclusion, is inductive, so by Zorn's
+Lemma it has a maximal element \(P\).
+We show that \(P\) is irreducible in \(M\).
+Assume that \(P = U \cap V\) with \(U,V \le M\) and \(P \subsetneq U\),
+\(P \subsetneq V\).
+Since \(x \notin P\), we have \(x \notin U\) or \(x \notin V\); suppose
+\(x \notin U\).
+Then \(U \in \mathfrak{S}\) and \(P \subsetneq U\), contradicting the
+maximality of \(P\).
+Hence \(P\) is irreducible.
+\end{proof}
+
+\begin{corollary}
+Let \(M\) be an \(R\)-module and \(N\) a proper submodule of \(M\).
+Then \(N\) is the intersection of irreducible submodules of \(M\).
+\end{corollary}
+
+\begin{proof}
+This follows immediately from the previous proposition.
+\end{proof}
+
+
+\begin{proposition}
+Let \(M\) be a uniform \(R\)-module. Then:
+\begin{enumerate}
+  \item Every non–zero submodule of \(M\) is uniform.
+  \item Every essential extension of \(M\) is uniform.
+\end{enumerate}
+\end{proposition}
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
