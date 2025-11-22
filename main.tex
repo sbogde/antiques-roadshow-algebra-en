@@ -2591,6 +2591,130 @@ $aR \ess R_R$, and Corollary~4.11 implies that $a$ is regular in $R$.
 
 
 
+
+% Page 46 – Section 5.1–5.4 (EN)
+\chapter{The Osofsky–Smith Theorem}
+
+\begin{definition}
+An \(R\)-module \(M\) is called a \emph{CS-module} if every submodule which is a complement of \(M\) is a direct summand of \(M\).
+The module \(M\) is called \emph{CS-complete} if \(M/N\) is a CS-module for every \(N \leq M\).
+\end{definition}
+
+\begin{remark}
+From 2.2.2 it follows that every injective module is a CS-module.
+\end{remark}
+
+\begin{proposition}
+For an \(R\)-module \(M\) the following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) is a CS-module.
+  \item Every maximal essential extension of a submodule of \(M\) is a direct summand of \(M\).
+  \item Every submodule of \(M\) is essential in a direct summand of \(M\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\((1) \Rightarrow (2)\) Let \(N\) be a submodule of \(M\) and \(Q\) a maximal essential extension of \(N\) in \(M\) (Proposition~1.13).
+Then \(Q\) is a closed submodule, and by 1.15 it follows that \(Q\) is a direct summand of \(M\).
+
+\((2) \Rightarrow (3)\) is immediate from Proposition~1.13.
+
+\((3) \Rightarrow (1)\) Let \(K\) be a complement submodule of \(M\).
+There exists a direct summand \(Q\) of \(M\) such that \(K \ess Q \).
+Since \(K\) is a closed submodule, we obtain \(K = Q\), and therefore \(K\) is a direct summand of \(M\).
+\end{proof}
+
+\begin{proposition}
+Every quasi-injective module is a CS-module.
+\end{proposition}
+
+\begin{proof}
+Let \(M\) be a quasi-injective \(R\)-module and \(N\) a submodule of \(M\).
+Then there exists \(E_2 \leq E(M)\) such that \(E(M) = E_1 \oplus E_2\), where \(E_1 = E(N)\).
+Let \(\pi_i : E(M) \to E_i\), \(i = 1,2\), be the canonical projections.
+Since \(\pi_i(M) \leq M\) for all \(i = 1,2\) (Corollary~2.2.7), it follows that
+\[
+M = (M \cap E_1) \oplus (M \cap E_2).
+\]
+Clearly \(N \ess (M \cap E_1) \), so \(N\) is essential in a direct summand of \(M\).
+By the previous proposition we conclude that \(M\) is a CS-module.
+\end{proof}
+
+
+% Page 47 – Lemma 5.5 (EN, first part)
+\begin{lemma}
+Let \(X\) be a cyclic CS-module with the property that
+\(S = \soc(X) \ess X_R\), where \(S\) is not finitely generated, but every
+finitely generated submodule of \(S\) is a direct summand of \(X\).
+If every cyclic submodule of \(X\) is a CS-module, then
+\(X/S\) is not a CS-module.
+\end{lemma}
+
+\begin{proof}
+Assume that \(X/S\) is a CS-module.
+Since \(S\) is not finitely generated, we can write
+\[
+S = \bigoplus_{i \geq 1} S_i,
+\]
+with \(S_i \leq X\) and \(S_i\) not finitely generated for every \(i \geq 1\).
+
+For every \(i \geq 1\) there exists a complement submodule \(D_i\) of \(X\) such that
+\(S_i \ess D_i \).
+Then \(D_i\) is a direct summand of \(X\), hence \(D_i\) is cyclic for all \(i \geq 1\),
+and therefore \(S_i \subsetneq D_i\).
+
+Since \(X/S\) is a CS-module, there exists a direct summand \(\overline{E}\) of \(X\) such that
+\[
+\sum_{i \geq 1} \frac{D_i + S}{S}
+  = \frac{D}{S} \ess \overline{E},
+\]
+where \(D := \bigoplus_{i \geq 1} D_i\).
+Let \(E\) be a cyclic submodule of \(X\) such that
+\(\overline{E} = (E + S)/S\).
+We obtain
+\[
+\frac{D}{S} \leq \frac{E + S}{S}.
+\]
+
+Since \(E \cap S \leq S\) and \(S\) is semisimple, there exists \(T \leq S\) with
+\[
+S = (E \cap S) \oplus T,
+\]
+and hence
+\[
+E + S = (E \cap S) \oplus T.
+\]
+
+Suppose there exists \(i \geq 1\) such that \(D_i \cap E = 0\).
+Considering the canonical projection \(\pi : E \oplus T \to T\), we have
+\(D_i \cap \ker \pi = 0\), which shows that
+\(\pi_{\mid D_i}\) is a monomorphism and therefore \(D_i\) is semisimple.
+But \(S_i \ess D_i \), which implies \(S_i = D_i\), a contradiction.
+Hence \(D_i \cap E \neq 0\) for all \(i \geq 1\), and consequently
+\(S_i \cap E \neq 0\) for all \(i \geq 1\).
+
+Since \(S \ess X_R\), there exist simple modules \(V_i\) with
+\(V_i \leq S_i \cap E\) for all \(i \geq 1\).
+Let \(V := \bigoplus_{i \geq 1} V_i\).
+The module \(E\) is a CS-module because \(E\) is cyclic.
+There exists a direct summand \(L\) of \(X\) such that \(V \ess L\).
+Note that \(L\) is cyclic and therefore \(V \subsetneq L\).
+For \(n \geq 1\) set
+\[
+P_n := \left( \bigoplus_{i=1}^n D_i \right) \cap L.
+\]
+Then
+\[
+P_n \cap S
+  = L \cap \left( \bigoplus_{i=1}^n S_i \right)
+  = V \cap \left( \bigoplus_{i=1}^n S_i \right)
+  = \bigoplus_{i=1}^n V_i,
+\]
+and hence \(P_n \cap S = \bigoplus_{i=1}^n V_i\).
+\end{proof}
+
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
