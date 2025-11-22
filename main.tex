@@ -2303,6 +2303,165 @@ no infinite direct sum of non-zero right ideals in \(R\).
 \end{example}
 
 
+% EN – 4.6 Proposition (beginning only; completed on the next page)
+\begin{proposition}
+Let \(R\) be a ring.
+Then \(R\) satisfies the ascending chain condition on right
+(respectively left) annihilator ideals if and only if \(R\) satisfies the descending chain condition for left (respectively right) annihilator ideals.
+\end{proposition}
+
+
+% Page 41 – Proof of Proposition 4.6 (EN)
+
+\begin{proof}
+``\(\Rightarrow\)''\;
+Let \(I_1 \supseteq I_2 \supseteq \dots \supseteq I_n \supseteq \dots\) be a descending
+sequence of left annihilator ideals.
+For each \(j \geq 1\) there exists a non-empty subset \(X_j \subseteq R\) such that
+\(I_j = \operatorname{ann}_\ell(X_j)\).
+
+We thus obtain an ascending sequence of right annihilator ideals
+\[
+  \operatorname{ann}_r(I_1) \subseteq \operatorname{ann}_r(I_2) \subseteq
+  \dots \subseteq \operatorname{ann}_r(I_n) \subseteq \dots .
+\]
+Hence there exists \(m \geq 1\) such that
+\(\operatorname{ann}_r(I_m) = \operatorname{ann}_r(I_{m+k})\) for all \(k \geq 1\).
+It follows that
+\[
+  \operatorname{ann}_\ell(\operatorname{ann}_r(I_m))
+  = \operatorname{ann}_\ell(\operatorname{ann}_r(I_{m+k}))
+  \quad \text{for all } k \geq 1,
+\]
+that is, \(I_m = I_{m+k}\) for all \(k \geq 1\).
+
+Using the relations
+\(\operatorname{ann}_\ell(\operatorname{ann}_r(\operatorname{ann}_\ell(X)))
+ = \operatorname{ann}_\ell(X)\) and
+\(\operatorname{ann}_r(Y) \subseteq \operatorname{ann}_r(X)\) whenever \(X \subseteq Y\),
+the converse implication ``\(\Leftarrow\)'' is proved in the same way.
+\end{proof}
+
+% Page 41 – Proposition 4.7 (EN)
+\begin{proposition}
+Let \(R\) be a semiprime ring which satisfies the ascending chain condition
+on right annihilator ideals.
+If \(I\) and \(J\) are right ideals with \(I \subseteq J\), then there exists
+an element \(b \in R\) such that \(bJ \neq 0\) and \(bJ \cap I = 0\).
+\end{proposition}
+
+\begin{proof}
+By the preceding lemma there exists a minimal element \(a\) in the set of
+left annihilator ideals such that
+\(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(I)\).
+Then \(aJ \neq 0\); since \(R\) is semiprime we have \(aJ \cdot aJ \neq 0\),
+so there exist \(x \in J\) and \(a \in aJ\) with \(b = x a\) such that
+\(x a J \neq 0\).
+Clearly \(bJ \neq 0\).
+
+It remains to show that \(bJ \cap I = 0\).
+Take \(\lambda \in bJ \cap I\); then \(\lambda = b\mu = x a \mu \in I\)
+for some \(\mu \in J\).
+Since \(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\lambda)\),
+we obtain
+\[
+  \operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\lambda)
+  \subseteq \operatorname{ann}_\ell(\mu).
+\]
+Because \(a \in aJ \subseteq aR\), we have
+\begin{equation}\label{eq:4.7-1-en}
+  x a \in a \quad\text{and hence}\quad x a J \subseteq aJ .
+\end{equation}
+
+On the other hand, \(x a J \subseteq I\), while \(\lambda \in I\) and
+\(a \subseteq \operatorname{ann}_r(I)\); therefore
+\begin{equation}\label{eq:4.7-2-en}
+  a \subseteq \operatorname{ann}_\ell(\mu).
+\end{equation}
+Since \(x a J \neq 0\), we also have
+\begin{equation}\label{eq:4.7-3-en}
+  a \nsubseteq \operatorname{ann}_\ell(J).
+\end{equation}
+
+From \eqref{eq:4.7-1-en}, \eqref{eq:4.7-2-en} and \eqref{eq:4.7-3-en} we obtain
+\(\operatorname{ann}_\ell(J) \subseteq \operatorname{ann}_\ell(\mu) \cap a\).
+If \(\lambda \neq 0\), then \(x a \mu \notin \operatorname{ann}_\ell(\mu)\), and,
+since \(x a \in a\), it follows that \(x a \mu \neq 0\), contradicting the
+minimality of \(a\).
+Thus \(\lambda = 0\), and hence \(bJ \cap I = 0\).
+\end{proof}
+
+
+% Page 42 – Corollary 4.8 (EN)
+\begin{corollary}
+If \(R\) is a right Goldie semiprime ring, then \(R\) satisfies the descending
+chain condition on right annihilator ideals.
+\end{corollary}
+
+\begin{proof}
+Assume that there exists a strictly descending sequence of right annihilator
+ideals
+\[
+  I_1 \supset I_2 \supset \dots \supset I_n \supset \dots .
+\]
+Then for every \(n \geq 1\) we have
+\(\operatorname{ann}_\ell(I_n) \neq \operatorname{ann}_\ell(I_{n+1})\).
+By Proposition~4.7, for each \(n \geq 1\) there exists a right ideal
+\(K_n\) such that \(K_n \subseteq I_n\) and \(K_n \cap I_{n+1} \neq 0\).
+Hence the sum \(\sum_{n \geq 1} K_n\) is an infinite direct sum of non-zero
+right ideals, which contradicts the right Goldie property of \(R\).
+\end{proof}
+
+
+% Page 42 – Proposition 4.9 (EN)
+\begin{proposition}
+Let \(R\) be a semiprime ring which satisfies the ascending chain condition
+on right annihilator ideals.
+If \(x, y \in R\) are such that \(xR\) and \(yR\) are essential in \(R_R\),
+then \(xyR\) is essential.
+\end{proposition}
+
+\begin{proof}
+Let \(I \leq R_R\) with \(I \neq 0\).
+Define
+\[
+  J = \{ I : x \} = \{ a \in R \mid xa \in I \}.
+\]
+Then \(J\) is a right ideal of \(R\), and
+\(xJ = xR \cap I \neq 0\) because \(xR \unlhd R_R\).
+Since \(\operatorname{ann}_r(x) \subseteq J\), \(xJ \neq 0\) and
+\(\operatorname{ann}_\ell(x) = 0\), we obtain
+\[
+  \operatorname{ann}_\ell(J) \subseteq
+  \operatorname{ann}_\ell(\operatorname{ann}_r(x)).
+\]
+By Proposition~4.7 there exists a right ideal \(K \neq 0\) such that
+\(K \subseteq J\) and \(K \cap \operatorname{ann}_r(x) = 0\).
+
+Now set
+\[
+  L = \{ K : y \} = \{ a \in R \mid ya \in K \}.
+\]
+Since \(yR \unlhd R_R\), we have \(yL = yR \cap K \neq 0\).
+If \(xyL = 0\), then \(yL \subseteq \operatorname{ann}_r(x)\) and hence
+\(yL \subseteq \operatorname{ann}_r(x) \cap K = 0\), a contradiction.
+Thus \(xyL \neq 0\).
+
+Because \(xyL \subseteq xK \subseteq xJ \subseteq xR \cap I\), it follows that
+\(0 \neq xyL \subseteq xyR \cap I\), showing that \(xyR \unlhd R_R\).
+\end{proof}
+
+
+% Page 42 – Proposition 4.10 (EN)
+\begin{proposition}
+Let \(R\) be a ring which satisfies the ascending chain condition on right
+annihilator ideals.
+Then, for every \(a \in R\) there exists an integer \(k \geq 0\) such that
+\[
+  \operatorname{ann}_r(a^n) = \operatorname{ann}_r(a^m)
+  \quad \text{for all } n \geq 0 \text{ and } m \geq k .
+\]
+\end{proposition}
 
 
 % Further chapters will be added as we progress.
