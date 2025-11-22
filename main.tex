@@ -14,6 +14,7 @@
 \DeclareMathOperator{\Rad}{Rad}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ann}{ann}
 
 % notations for essential submodule as per https://en.wikipedia.org/wiki/Essential_extension
 \newcommand{\ess}{\trianglelefteq}  % Anderson–Fuller-style (default in text)
@@ -2462,6 +2463,132 @@ Then, for every \(a \in R\) there exists an integer \(k \geq 0\) such that
   \quad \text{for all } n \geq 0 \text{ and } m \geq k .
 \]
 \end{proposition}
+
+
+
+% Proposition 4.10 – end of the proof
+\begin{proof}
+We have the ascending chain of right annihilator ideals
+\[
+  \ann_r(a) \subseteq \ann_r(a^2) \subseteq \cdots \subseteq \ann_r(a^n)
+  \subseteq \cdots .
+\]
+Let $k \geq 0$ be such that $\ann_r(a^k) = \ann_r(a^m)$ for every
+$m \geq k$. If $\lambda \in \ann_r(a^n) \cap a^mR$, then
+$a^n \lambda = 0$ and $\lambda = a^m\mu$, hence $a^{m+n}\mu = 0$.
+Since $m+n \geq k$, it follows that $\mu \in \ann_r(a^k)$ and thus
+$a^k\mu = 0$. As $m \geq k$, we may write
+$\lambda = a^{m-k}a^k\mu = 0$, and therefore
+\[
+  \ann_r(a^n) \cap a^mR = 0 .
+\]
+\end{proof}
+
+
+% Corollary 4.11
+\begin{corollary}
+Assume the hypotheses of Proposition~4.10. If $xR \ess R_R$, then
+$x$ is a regular element of $R$.
+\end{corollary}
+
+\begin{proof}
+If $\ann_r(x) \neq 0$, then $0 = \ann_r(R) \neq \ann_r(xR)$, so there
+exists a right ideal $I \neq 0$ such that $I \cap xR = 0$,
+a contradiction. Hence $\ann_r(x) = 0$.
+
+By Proposition~4.9 we have $x^nR \ess R_R$ for every $n \geq 1$.
+Applying Proposition~4.10, we obtain $k \geq 0$ such that
+$\ann_r(x^n) \cap x^mR = 0$ for all $m \geq k$. In particular
+$\ann_r(x) = 0$, so $x$ is a regular element of $R$.
+\end{proof}
+
+% Corollary 4.12
+\begin{corollary}
+Let $R$ be a right Goldie and semiprime ring. If $\ann_r(x)=0$ for
+some $x \in R$, then $xR \ess R_R$ and $x$ is regular.
+\end{corollary}
+
+\begin{proof}
+Let $I$ be a non-zero right ideal of $R$ and suppose
+$I \cap xR = 0$. Then the sum
+\[
+  \sum_{n \geq 1} x^n I
+\]
+is direct. Indeed, for $p = 1$ we have
+$x^p I \cap \sum_{n \neq p} x^n I = xI \cap x^p I$. If
+$y \in xI \cap x^p I$, then $y = x\lambda = x^2\mu$ for some
+$\lambda,\mu \in I$. Hence $\lambda - x\mu \in \ann_r(x)$ and so
+$\lambda = x\mu$, which implies $\lambda \in I \cap xR = 0$. Thus
+$\lambda = 0$ and consequently $y = 0$. Therefore
+$xI \cap x^2 I = 0$, and a fortiori $xI \cap x^p I = 0$ for
+$p \neq 1$. Hence
+$x^p I \cap \sum_{n \neq p} x^n I = 0$, so the sum
+$\sum_{n \geq 1} x^n I$ is direct, a contradiction.
+
+Thus $xR \ess R_R$. By Corollary~4.11 we conclude that $x$ is a
+regular element of $R$.
+\end{proof}
+
+% Proposition 4.13
+\begin{proposition}
+Let $R$ be a right Goldie and semiprime ring. Then:
+\begin{enumerate}
+  \item[(a)] Every two–sided right annihilator ideal of $R$ contains
+             a minimal two–sided right annihilator ideal.
+  \item[(b)] There exists a finite direct sum of non-zero minimal
+             two–sided right annihilator ideals of $R$ which is
+             essential in $R$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) This follows from Corollary~4.8.
+
+(b) Let $I = I_1 \oplus I_2 \oplus \cdots \oplus I_n$ be a maximal
+direct sum where $I_1,\dots,I_n$ are non-zero minimal two–sided right
+annihilator ideals of $R$. Let $K \leq R_R$, $K \neq 0$ with
+$I \cap K = 0$. Since $KI \subseteq I \cap K = 0$, we have
+$K \subseteq \ann_r(I)$. As $R$ is semiprime, $I \cap \ann_r(I) = 0$,
+hence $I \ann_r(I) = 0$ and thus
+$\ann_l(I) \subseteq \ann_r(I)$, so in particular $\ann_r(I) \neq 0$.
+Again, $R$ being semiprime implies $I \cap \ann_l(I) = 0$, where
+$\ann_l(I)$ is a two–sided ideal. By (a) there exists a non-zero
+two–sided right annihilator ideal $J$, minimal with respect to
+$J \subseteq \ann_r(I)$ and $J \cap I = 0$, which contradicts the
+maximality of $I$ as a direct sum. Hence $I \ess R$.
+\end{proof}
+
+
+% Proposition 4.14
+\begin{proposition}
+Let $R$ be a right Goldie and prime ring. If $I$ is an essential right
+ideal of $R$, then $I$ contains a regular element of $R$.
+\end{proposition}
+
+\begin{proof}
+Choose $a \in I$ such that $\ann_r(a)$ is minimal in the set
+$\{\ann_r(x) \mid x \in I\}$. Let $J \leq R_R$, $J \neq 0$ with
+$aR \cap J = 0$. Since $I \ess R_R$, we have $I \cap J \neq 0$; we may
+assume that $J$ is a non-zero right ideal of $R$ contained in $I$ and
+still satisfying $aR \cap J = 0$.
+
+Let $x \in J$. If $\lambda \in \ann_r(a+x)$, then
+$a\lambda + x\lambda = 0$, so $x\lambda = -a\lambda \in aR \cap J$,
+hence $x\lambda = 0$ and consequently $a\lambda = 0$. Thus
+$\lambda \in \ann_r(a) \cap \ann_r(x)$. Since the inclusion
+\[
+  \ann_r(a) \cap \ann_r(x) \subseteq \ann_r(a+x)
+\]
+is obvious, we obtain
+$\ann_r(a+x) = \ann_r(a) \cap \ann_r(x)$. By the minimality of
+$\ann_r(a)$ it follows that $\ann_r(a) \subseteq \ann_r(x)$ and hence
+$x\,\ann_r(a) = 0$, so $J \ann_r(a) = 0$. As $R$ is prime, we
+must have $\ann_r(a) = 0$.
+
+By Corollary~4.12 we deduce $J = 0$, a contradiction. Therefore
+$aR \ess R_R$, and Corollary~4.11 implies that $a$ is regular in $R$.
+\end{proof}
+
 
 
 % Further chapters will be added as we progress.
