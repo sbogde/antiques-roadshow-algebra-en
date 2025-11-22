@@ -41,6 +41,16 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
+\makeatletter
+\renewcommand{\thetheorem}{%
+  \ifnum\value{section}=0
+    \thechapter.\arabic{theorem}%   e.g. 1.1, 1.2, 3.1, ...
+  \else
+    \thesection.\arabic{theorem}%   e.g. 0.1.1, 0.1.2, 2.2.3, ...
+  \fi}
+\makeatother
+
+
 % ---------- Title page ----------
 \title{The Uniform (Co-Irreducible) Dimension of Rings and Modules}
 \author{Supervisor: Prof. Dr Tiberiu Dumitrescu\\[0.5em]
