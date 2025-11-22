@@ -2179,6 +2179,132 @@ which is equivalent to the ascending chain condition for direct sums.
 \end{remark}
 
 
+% EN – Chapter 4 title
+\chapter{Ore domains and Goldie rings}
+
+% EN – 4.1 Definition (Ore domain)
+\begin{definition}
+An integral domain \(D\) is called a \emph{right Ore domain}
+(respectively a left Ore domain) if
+\(aD \cap bD \neq 0\) (respectively \(Da \cap Db \neq 0\))
+for all \(a,b \in D \setminus \{0\}\).
+\end{definition}
+
+% EN – 4.2 Proposition (Ore domain and uniform right ideal)
+\begin{proposition}
+Let \(D\) be an integral domain.
+Then \(D\) is a right Ore domain if and only if \(D\) contains a
+uniform right ideal.
+In particular, this condition holds whenever \(D\) satisfies the
+ascending chain condition on direct sums of right ideals.
+\end{proposition}
+
+\begin{proof}
+“\(\Rightarrow\)” If \(D\) is a right Ore domain, then the right
+module \(D_D\) is uniform.
+
+“\(\Leftarrow\)” Let \(X\) be a uniform right ideal of \(D\) and
+\(x \in X \setminus \{0\}\).
+Consider the map
+\[
+\varphi_x : D_D \longrightarrow X, \qquad \varphi_x(a) = xa .
+\]
+This is an injective homomorphism of right \(D\)-modules.
+Hence \(D_D\) is uniform and therefore \(D\) is a right Ore domain.
+\end{proof}
+
+% EN – 4.3 Example (the ring A = K(y)[x])
+\begin{example}
+Let \(K\) be a commutative field and \(y\) an indeterminate.
+Let \(K(y)\) be the field of fractions of the polynomial ring \(K[y]\).
+If \(x\) is another indeterminate, we consider \(K(y)[x]\), the set
+of polynomials in the indeterminate \(x\) with coefficients in \(K(y)\).
+On this set we define two operations: addition is the usual addition
+of polynomials, and multiplication in \(K(y)[x]\) is defined by the
+commutation rule
+\[
+x f(y) = f(y^{2})x, \qquad f \in K(y).
+\]
+It is straightforward to check that \(K(y)[x]\) with these two
+operations is a unital ring.
+We write \(A = K(y)[x]\).
+Then \(A\) is a non-commutative integral domain.
+
+Every element of \(A\) can be written uniquely in the form
+\[
+P(x) = f_{n}(y)x^{n} + f_{n-1}(y)x^{n-1} + \dots + f_{1}(y)x + f_{0}(y),
+\]
+where \(n\) is a natural number,
+\(f_{0}(y), f_{1}(y), \dots, f_{n}(y) \in K(y)\) and \(f_{n}(y) \neq 0\).
+We set \(\deg P(x) = n\).
+
+If \(P(x), Q(x) \in A\) with \(Q(x) \neq 0\), then there exist
+\(S(x), R(x) \in A\) such that
+\[
+P(x) = S(x)Q(x) + R(x)
+\tag{\(*\)}
+\]
+with either \(R(x) = 0\) or \(\deg R(x) < \deg Q(x)\).
+From \((*)\) it follows that \(A\) is a left principal ideal ring.
+Hence \(A\) satisfies the ascending chain condition on direct sums
+of left ideals, and therefore \(A\) is a left Ore domain.
+
+We now show that \(xA \cap yA = 0\).
+Let \(\alpha \in xA \cap yA\).
+Then
+\[
+\alpha = x\bigl(f_{n}(y)x^{n} + \dots + f_{0}(y)\bigr)
+       = yx\bigl(g_{m}(y)x^{m} + \dots + g_{0}(y)\bigr),
+\]
+so that
+\[
+f_{n}(y^{2})x^{n+1} + \dots + f_{0}(y^{2})x
+ = y\bigl(g_{m}(y^{2})x^{m+1} + \dots + g_{0}(y^{2})x\bigr),
+\]
+and hence \(m = n\).
+Thus
+\[
+f_{n}(y^{2}) = y g_{m}(y^{2}), \dots, f_{0}(y^{2}) = y g_{0}(y^{2}),
+\]
+which holds if and only if
+\(f_{n}(y) = \dots = f_{1}(y) = f_{0}(y) = 0\), and therefore \(\alpha = 0\).
+Consequently, \(A\) is not a right Ore domain.
+\end{example}
+
+\begin{center}
+\textbf{GOLDIE RINGS}
+\end{center}
+
+
+% EN – 4.4 Definition (annihilator ideals, right Goldie ring)
+\begin{definition}
+A right (respectively left) ideal \(I\) is called a
+\emph{right annihilator ideal} (respectively a left annihilator ideal)
+if there exists a non-empty subset \(X\) of \(R\) such that
+\(I = \operatorname{ann}_{r}(X)\) (respectively
+\(I = \operatorname{ann}_{l}(X)\)).
+
+A ring \(R\) is called a \emph{right Goldie ring} if \(R\) satisfies
+the ascending chain condition on right annihilator ideals and there is
+no infinite direct sum of non-zero right ideals in \(R\).
+\end{definition}
+
+% EN – 4.5 Examples (Goldie rings)
+\begin{example}
+\leavevmode
+\begin{enumerate}
+  \item If \(R\) is right noetherian, then \(R\) is a right Goldie ring.
+        In particular, \(\mathbb{Z}\) is a Goldie ring.
+  \item If \(R\) is an integral domain, then \(R\) is a right Goldie ring
+        if and only if \(R\) is a right Ore domain.
+  \item From Example~4.3 it follows that there exist rings which are
+        Goldie on the left but not on the right.
+\end{enumerate}
+\end{example}
+
+
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
