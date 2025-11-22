@@ -1844,6 +1844,245 @@ Let \(M\) be a uniform \(R\)-module. Then:
 \end{enumerate}
 \end{proposition}
 
+\begin{proof}
+1) This follows immediately from 3.1.
+
+2) Let $M \ess E$ be an essential extension of $M$. If $E_1,E_2$ are
+non-zero submodules of $E$, then $M \cap E_1 \neq 0$ and
+$M \cap E_2 \neq 0$, hence
+\[
+(M \cap E_1) \cap (M \cap E_2) \neq 0,
+\]
+and therefore $E_1 \cap E_2 \neq 0$. Thus $E$ is uniform.
+\end{proof}
+
+\begin{lemma}
+Let $M$ be an $R$-module and $(M_\alpha)_{\alpha \in \Lambda}$ a family
+of independent submodules. If $N$ is a submodule of $M$ such that
+\[
+N \cap \Bigl(\sum_{\alpha \in \Lambda} M_\alpha\Bigr) \neq 0,
+\]
+then there exists a non-zero submodule of some $M_\alpha$ that is
+isomorphic to a submodule of $N$.
+\end{lemma}
+
+
+\begin{proof}
+If $\operatorname{Card}\Lambda = 1$, the statement is clear.
+
+If $\operatorname{Card}\Lambda = 2$, set $P = N \cap (M_1 + M_2)$.
+If $N \cap M_1 = 0$, then $P \cong (P + M_1)/M_1$ and
+\[
+(P + M_1)/M_1 \leq (M_1 + M_2)/M_1 \cong M_2.
+\]
+Hence $P$ is isomorphic to a submodule of $M_2$.
+If $\Lambda$ is finite, arguing by induction reduces the proof to this
+case.
+
+If $\Lambda$ is infinite, choose
+$x \in N \cap \bigl(\sum_{\alpha \in \Lambda} M_\alpha\bigr)$, $x \neq 0$.
+Then there exist $\alpha_1,\ldots,\alpha_n \in \Lambda$ such that
+\[
+xR \cap (M_{\alpha_1} + M_{\alpha_2} + \cdots + M_{\alpha_n}) \neq 0,
+\]
+and we are reduced to the case where $\Lambda$ is finite.
+\end{proof}
+
+\begin{remark}
+Let $M$ be a right $R$-module and let $\Omega$ be the set of uniform
+submodules of $M$. It may happen that $\Omega = \emptyset$.
+Set
+\[
+\mathcal{S} = \bigl\{\Omega' \subseteq \Omega \,\bigm|\, \sum_{N \in \Omega'}
+N \text{ is a direct sum} \bigr\}.
+\]
+The partially ordered set $(\mathcal{S},\subseteq)$ is inductive and,
+by Zorn's lemma, $\mathcal{S}$ has a maximal element $\Omega_0$.
+Put $S = \bigoplus_{N \in \Omega_0} N$.
+We say that $S$ is a maximal direct sum of uniform submodules of $M$.
+\end{remark}
+
+
+\begin{proposition}
+Let $M$ be an $R$-module and $S$ a maximal direct sum of uniform
+submodules of $M$. If $N$ is a non-zero submodule of $M$, then the
+following statements are equivalent:
+\begin{enumerate}
+  \item $S \cap N \neq 0$;
+  \item $N$ contains a uniform submodule.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Implication \((1)\Rightarrow(2)\) follows from Lemma~3.6.
+
+Implication \((2)\Rightarrow(1)\) follows from the maximality of $S$.
+\end{proof}
+
+\begin{theorem}
+Let $M$ be an $R$-module and $S$ a maximal direct sum of uniform
+submodules of $M$. There exists a submodule $K$, maximal among the
+submodules of $M$ that contain no uniform submodule, with the
+properties:
+\begin{enumerate}
+  \item $S + K$ is a direct sum;
+  \item $(S \oplus K) \ess M$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item Let
+\[
+\mathcal{S} = \{\,L \leq M \mid \forall L' \leq L,\; L' \text{ is not
+uniform}\,\}.
+\]
+Then $\mathcal{S} \neq \emptyset$ because $0 \in \mathcal{S}$ and
+$\mathcal{S}$ is inductive. By Zorn's lemma, $\mathcal{S}$ has a
+maximal element $K$. By Proposition~3.8 we have $S \cap K = 0$.
+
+\item Suppose $N \cap (S \oplus K) = 0$, where $N$ is a non-zero
+submodule of $M$. Then $(N + K) \cap S = 0$, and by
+Proposition~3.8, $N + K$ contains no uniform submodule, which
+contradicts the maximality of $K$. Hence $(S \oplus K) \ess M$.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+Let $M$ be an $R$-module.
+A finite intersection of submodules
+\[
+\bigcap_{i \in I} N_i \qquad (I \text{ finite})
+\]
+is called \emph{reduced} if, for every $i \in I$, we have
+\[
+\bigcap_{i \in I} N_i \neq
+\bigcap_{\substack{j \in I \\ j \neq i}} N_j .
+\]
+
+It is clear that if we have a finite intersection
+$N = \bigcap_{i \in I} N_i$ of irreducible submodules, then it can
+always be written as a reduced intersection of irreducible submodules.
+\end{definition}
+
+
+% Theorem 3.11 (Kuros–Ore) – EN
+\begin{theorem}[Kuros–Ore Theorem]
+Let \(M\) be an \(R\)-module and \(N\) a submodule of \(M\).
+Assume that \(N\) has finite reduced intersections:
+\[
+N = N_1 \cap N_2 \cap \dots \cap N_m = L_1 \cap L_2 \cap \dots \cap L_n,
+\]
+where each \(N_i\) and each \(L_j\) is an irreducible submodule of \(M\).
+Then \(m = n\).
+\end{theorem}
+
+\begin{proof}
+Let \(N_i' = N_1 \cap \dots \cap N_{i-1} \cap N_{i+1} \cap \dots \cap N_m\).
+Then \(N \subseteq N_i'\) and \(N = N_i \cap N_i'\).
+For each \(j\), set \(P_j = N_i \cap L_j\).
+Then
+\[
+N \subseteq P_j \subseteq N_i' \quad\text{and}\quad P_j \subseteq L_j.
+\]
+Hence
+\[
+N \subseteq \bigcap_{j=1}^n P_j \subseteq \bigcap_{j=1}^n L_j = N,
+\]
+so the intersection of the \(P_j\) is exactly \(N\).
+
+Since \(N_i\) is irreducible in \(M\), it is irreducible in \(N_i + N_i'\),
+and therefore
+\[
+\frac{N_i'}{N_i' \cap N_i} \cong \frac{N_i + N_i'}{N_i}
+\]
+is uniform (co-irreducible), showing that \(N\) is irreducible in \(N_i'\).
+
+Thus from \(N = \bigcap_{j=1}^n P_j\),
+there exists some \(j\) with \(N = P_j = N_i \cap L_j\).
+
+Set \(I=\{1,\dots,m\}\), \(J=\{1,\dots,n\}\),
+and choose \(i_1\in I\).
+Then for some \(j_1\in J\),
+\[
+N = L_{j_1} \cap \Bigl(\bigcap_{i\neq i_1} N_i\Bigr).
+\]
+
+Since the intersection is finite we may reduce it step by step,
+maintaining at each step at least one \(L_{j_k}\) that does not disappear.
+We obtain a decreasing chain
+\[
+J \supseteq J_1 \supseteq \dots \supseteq J_r,
+\]
+with \(r\le m\), such that for the final set \(J'\subseteq J\),
+\[
+N = \bigcap_{j\in J'} L_j.
+\]
+
+Because the intersection \(L_1\cap\dots\cap L_n\) is reduced,
+we must have \(J'=J\).
+Since \(J'\) has at most \(r\) elements,
+\(n\le r\le m\).  
+A symmetric argument gives \(m\le n\).
+\end{proof}
+
+% Theorem 3.12 – EN
+\begin{theorem}
+Let \(M\) be an \(R\)-module and let \((N_i)_{i=1}^m\) and \((L_j)_{j=1}^n\)
+be two independent families of uniform (co-irreducible) submodules such that
+\[
+\bigoplus_{i=1}^m N_i \subseteq M
+\quad\text{and}\quad
+\bigoplus_{j=1}^n L_j \subseteq M
+\]
+are essential in \(M\).  
+Then \(m=n\).
+\end{theorem}
+
+\begin{proof}
+For each \(k\), set \(N_k'=\bigoplus_{i\ne k} N_i\).
+Then \(N_k\cap N_k'=0\).
+
+Consider
+\[
+\mathfrak{S}_k = \{P\le M \mid N_k\cap P=0 \text{ and } N_k\subseteq P\}.
+\]
+This set is inductive, so by Zorn’s lemma it has a maximal element \(P_k\).
+If \(Q\subseteq Q'\subseteq M\) and \(P_k\subseteq Q\subseteq Q'\),
+then the irreducibility of \(N_k\) forces \(P_k=Q=Q'\).
+Thus each \(P_k\) is co-irreducible.
+
+For any \(k\),
+\[
+N = \bigoplus_{k=1}^m N_k = N_k \oplus N_k'.
+\]
+By the modular law,
+\[
+N\cap P_k = (N_k\oplus N_k')\cap P_k
+          = N_k + (N_k'\cap P_k),
+\]
+so \(N\cap P_k = N_k\).
+Hence
+\[
+N \cap \bigcap_{k=1}^m P_k
+  = \bigcap_{k=1}^m (N\cap P_k)
+  = \bigcap_{k=1}^m N_k
+  = 0.
+\]
+
+But since \(N\) is essential in \(M\), this implies
+\(\bigcap_{k=1}^m P_k = 0\).
+
+Moreover, \(N_i = \bigcap_{k\ne i} P_k\),
+so each such intersection is reduced.
+
+Repeating the argument for \((L_j)\),
+we obtain irreducible submodules \((Q_j)\)
+with \(\bigcap_j Q_j = 0\).
+
+Applying the Kuros–Ore theorem gives \(m=n\).
+\end{proof}
+
 
 % Further chapters will be added as we progress.
 % Example:
