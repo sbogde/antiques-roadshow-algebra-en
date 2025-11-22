@@ -2084,6 +2084,95 @@ Applying the Kuros–Ore theorem gives \(m=n\).
 \end{proof}
 
 
+
+\begin{definition}
+An \(R\)-module \(M\) is said to have \emph{finite uniform
+(co-irreducible) dimension} if there exists a finite independent family
+\((N_i)_{i=1}^n\) of uniform submodules of \(M\) such that
+\[
+\bigoplus_{i=1}^n N_i \ess M.
+\]
+In this case the integer \(n\) is called the \emph{uniform
+(co-irreducible) dimension} of \(M\) and we write \(\dim M = n\).
+\end{definition}
+
+\begin{theorem}
+Let \(M\) be an \(R\)-module. The following statements are equivalent:
+\begin{enumerate}
+  \item \(M\) has finite uniform (co-irreducible) dimension.
+  \item \(M\) satisfies the ascending chain condition for direct sums.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{\((2) \Rightarrow (1)\).}
+Let \(\mathcal{S}'\) and \(\mathcal{S}\) be two finite families of
+independent submodules of \(M\).
+We say that \(\mathcal{S}'\) is a \emph{refinement} of \(\mathcal{S}\) if
+every submodule in \(\mathcal{S}'\) is contained in some submodule from
+\(\mathcal{S}\).
+It is easy to check that refinement defines a partial order on the set of
+families of submodules of \(M\).
+Since \(M\) satisfies (2), there exists a family \(\mathcal{S}_0\) of
+independent submodules of \(M\) which is maximal with respect to this
+order.
+
+Take \(N \in \mathcal{S}_0\).
+If \(N\) is not uniform, then there exist non-zero submodules
+\(P,Q \leq N\) with \(P \cap Q = 0\).
+From \(\mathcal{S}_0\) we can then construct a proper refinement of
+\(\mathcal{S}_0\), a contradiction.
+Hence every submodule in \(\mathcal{S}_0\) is uniform, so \(M\) contains a
+uniform submodule.
+If \(L\) is a non-zero submodule of \(M\), then \(L\) also satisfies (2),
+and the same argument shows that \(L\) contains a uniform submodule.
+
+Now let
+\[
+S = \bigoplus_{i\in I} N_i
+\]
+be a maximal direct sum of uniform submodules of \(M\) and
+let \(N \leq M\) be non-zero.
+Since \(M\) satisfies the ascending chain condition on direct sums, the
+index set \(I\) is finite.
+By Proposition~3.8 we have \(S \cap N \neq 0\), so \(S \ess M\).
+By definition, \(M\) has finite uniform dimension.
+
+\medskip
+\emph{\((1) \Rightarrow (2)\).}
+Let
+\[
+S = \bigoplus_{i=1}^n N_i
+\]
+be a direct sum of uniform submodules with \(S \ess M\).
+If \(N\) is a non-zero submodule of \(M\), then \(S \cap N \neq 0\), and by
+Lemma~3.6 the submodule \(N\) contains a uniform submodule.
+
+Let \((L_j)_{j=1}^m\) be an independent family of submodules of \(M\).
+From the previous paragraph, each \(L_j\) contains a uniform submodule
+\(P_j\).
+Clearly, the family \((P_j)_{j=1}^m\) is independent.
+By Theorem~3.1.2 we deduce \(m \leq n\).
+Thus every independent family of submodules has bounded finite length,
+which is equivalent to the ascending chain condition for direct sums.
+\end{proof}
+
+\begin{remark}
+    Let \(M\) be an \(R\)-module. Then:
+\begin{enumerate}
+  \item If \(N \ess M\), then \(M\) has finite uniform (co-irreducible)
+        dimension if and only if \(N\) has finite uniform dimension, and
+        in this case \(\dim M = \dim N\).
+  \item If \(M = \bigoplus_{i=1}^n N_i\), then \(M\) has finite uniform
+        dimension if and only if each \(N_i\) has finite uniform dimension
+        for all \(i = 1,\dots,n\). Moreover,
+        \[
+          \dim M = \sum_{i=1}^n \dim N_i .
+        \]
+\end{enumerate}
+\end{remark}
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
