@@ -2843,7 +2843,7 @@ is a finite direct sum of uniform modules.
 
 % Corollary 5.8 – statement and proof (EN)
 
-\begin{corollary}[Corollary 5.8]
+\begin{corollary}
 Let \(N\) be an \(R\)-module such that every factor module of every cyclic
 submodule of \(N\) is injective.
 Then \(N\) is semisimple.
@@ -2867,9 +2867,112 @@ each \(U_i\) is injective and therefore indecomposable for all
 \(i = 1,\dots,n\) (see Proposition~3.1).
 % Thus \(C\) is a finite direct sum of indecomposable injective modules, hence semisimple. As \(x\) was arbitrary, \(N\) is semisimple.
 
+Let \(y \in U_i\). Then \(yR \cong yR/0\) is injective, hence the exact sequence
+\[
+0 \longrightarrow yR \longrightarrow U_i \longrightarrow U_i / yR \longrightarrow 0
+\]
+splits. By 2.1.15 it follows that \(yR\) is a direct summand of \(U_i\), and thus
+\(yR = U_i\) or \(yR = 0\) for every \(y \in U_i\).
+We obtain that \(U_i\) is simple and therefore \(C = xR\) is semisimple for every
+\(x \in N\). Hence \(N\) is semisimple.
 
 \end{proof}
 
+\begin{corollary}[Osofsky]\label{cor:5.9-EN}
+If \(R\) is a ring such that every cyclic \(R\)-module is injective,
+then \(R\) is semisimple Artinian.
+\end{corollary}
+
+\begin{proof}
+Observing that we can apply the previous corollary with \(N = R\), we obtain
+that \(R\) is semisimple.
+\end{proof}
+
+\begin{corollary}\label{cor:5.10-EN}
+Let \(R\) be a ring such that every singular cyclic \(R\)-module is injective.
+Then every singular \(R\)-module is semisimple.
+\end{corollary}
+
+\begin{proof}
+Let \(M\) be a singular \(R\)-module.
+Submodules and factor modules of a singular module are singular.
+In particular, if \(x \in M \setminus \{0\}\), every factor module of any cyclic
+submodule of \(xR\) is injective.
+By Corollary~5.8 it follows that \(xR\) is semisimple for every
+\(x \in M \setminus \{0\}\), which shows that \(M\) is semisimple.
+\end{proof}
+
+\begin{lemma}\label{lem:5.11-EN}
+Let \(S\) be a simple \(R\)-module.
+Then \(S\) is singular if and only if
+\(S \cdot \soc(R) = 0\).
+\end{lemma}
+
+\begin{proof}
+Let \(M\) be a maximal right ideal of \(R\).
+We show that \(M \ess R_R\) if and only if \(\soc(R) \subseteq M\).
+
+The necessity is clear if we take into account that
+\[
+\soc(R) = \bigcap_{L \ess R} L,
+\]
+where the intersection runs over all maximal right ideals \(L\) of \(R_R\).
+
+Conversely, if \(M\) is not essential in \(R\), there exists
+\(0 \neq a \in R\) such that \(aR \cap M = 0\).
+Using the maximality of \(M\) we get \(aR \oplus M = R\), hence
+\(aR \cong R / M\), which shows that \(aR\) is simple and therefore
+\(aR \subseteq \soc(R)\), so \(aR \subseteq M\), a contradiction.
+
+Since \(S\) is a simple singular \(R\)-module, for every \(x \in S\),
+\(\ann_R(x)\) is an essential maximal ideal of \(R\); from the above observation
+it follows that \(\soc(R) \subseteq \ann_R(x)\) for all \(x \in S\), which is
+equivalent to \(S \cdot \soc(R) = 0\).
+\end{proof}
+
+\begin{corollary}\label{cor:5.12-EN}
+The following statements are equivalent:
+\begin{enumerate}
+  \item Every singular cyclic \(R\)-module is injective.
+  \item Every singular \(R\)-module is injective.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\emph{\((1) \Rightarrow (2)\).}
+Assume that \(Z(R_R) \neq 0\) and let \(a \in Z(R_R)\setminus\{0\}\).
+Then \(aR\) is a singular cyclic \(R\)-module, hence injective.
+It follows that \(aR\) is a direct summand of \(R\), so there exists
+\(e = e^2 \in R \setminus\{0\}\) such that \(aR = eR\) and hence
+\(e \in Z(R_R)\), a contradiction since \(\ann_r(e) \cap eR = 0\).
+Thus \(R\) is nonsingular, and the injective envelope of a singular module
+is singular (see A.~W.~Goldie, \emph{Torsion free modules and rings},
+J.~Algebra (1964), 268–287).
+
+Let \(M\) be a singular \(R\)-module.
+Since \(E(M)\) is a singular \(R\)-module, Corollary~5.10 yields that
+\(E(M)\) is semisimple.
+Hence \(M\) is a direct summand of \(E(M)\) and therefore \(M = E(M)\),
+so \(M\) is injective.
+
+\emph{\((2) \Rightarrow (1)\).}
+This implication is obvious.
+\end{proof}
+
+\begin{corollary}[Goodearl]\label{cor:5.13-EN}
+If every singular cyclic \(R\)-module is injective, then:
+\begin{enumerate}
+  \item every simple \(R / \soc(R)\)-module is injective;
+  \item \(R / \soc(R)\) is noetherian.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(1) Let \(S\) be a simple \(R / \soc(R)\)-module.
+Since \(S \cdot \soc(R) = 0\), Lemma~5.11 shows that \(S\) is a simple
+singular \(R\)-module and hence a simple injective \(R\)-module.
+It follows that \(S\) is a simple injective \(R / \soc(R)\)-module.
+\end{proof}
 
 
 % Further chapters will be added as we progress.
