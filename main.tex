@@ -2974,6 +2974,87 @@ singular \(R\)-module and hence a simple injective \(R\)-module.
 It follows that \(S\) is a simple injective \(R / \soc(R)\)-module.
 \end{proof}
 
+% [EN] p.52–53 – Corollary 5.13 (part (2)), Definition 5.14, Corollary 5.15 (Damiano)
+
+(2) Let \(E = \bigoplus_{i=1}^{\infty} S_i\) in \(\mathrm{Mod}\text{-}R/\soc(R)\),
+where \(S_i\) is a simple \(R/\soc(R)\)-module for every \(i \geq 1\).
+Then \(E = \bigoplus_{i=1}^{\infty} S_i\) in \(\mathrm{Mod}\text{-}R\), with
+each \(S_i\) a simple singular \(R\)-module. It follows that \(E\) is a singular
+\(R\)-module. By Corollary~5.12, \(E\) is an injective \(R\)-module and hence
+an injective \(R/\soc(R)\)-module. Applying the Matlis–Bass theorem, we obtain
+that \(R/\soc(R)\) is noetherian.
+
+\medskip
+
+\begin{definition}
+A ring \(R\) is called a \emph{right PCI-ring} if every right \(R\)-module
+which is not isomorphic to \(R_R\) is injective.
+\end{definition}
+
+% \noindent\textbf{Corollary 5.15 (Damiano).}
+\begin{corollary}[Damiano]
+    If \(R\) is a right PCI-ring, then \(R\) is right noetherian.
+\end{corollary}
+
+
+\begin{proof}
+By Corollary~5.13 we know that \(R/\soc(R)\) is noetherian. Assume that
+\(\soc(R) \neq 0\).
+Let \(C\) be a cyclic \(R/\soc(R)\)-module. Then \(C\) is a proper cyclic
+\(R\)-module, because \(C \cdot \soc(R) = 0\) whereas
+\(R \cdot \soc(R) = \soc(R) \neq 0\).
+Hence \(C\) is an injective \(R\)-module and therefore an injective
+\(R/\soc(R)\)-module. By Osofsky’s theorem (Corollary~5.9), it follows that
+\(R/\soc(R)\) is a semisimple ring.
+
+Assume that \(\soc(R) \neq R\). Then there exist \(n \geq 1\) and simple
+submodules \(W_i \leq R/\soc(R)\), \(i = 1,\dots,n\), such that
+\[
+  R/\soc(R) = W_1 \oplus W_2 \oplus \dots \oplus W_n.
+\]
+Choose \(\widehat{y} \in W_n\). Then
+\[
+  W_n \cong \widehat{y}\,R/\soc(R)
+         = \frac{yR + \soc(R)}{\soc(R)}
+         \cong \frac{yR}{yR \cap \soc(R)},
+\]
+so \(yR / (yR \cap \soc(R))\) is simple.
+
+We show that \(\soc(yR)\) has finite length. Otherwise we could write
+\[
+  \soc(yR) = S \oplus T \oplus U
+\]
+with \(S,T,U\) of infinite length. Clearly \(yR/S\) is a cyclic \(R\)-module.
+Since \(S\) is not a direct summand of \(yR\), we have \(yR/S \not\cong R\),
+hence \(yR/S\) is injective.
+
+As \(T \oplus U \cong \soc(yR)/S \leq yR/S\), there is an injective homomorphism
+\[
+  0 \longrightarrow T \oplus U \longrightarrow yR/S,
+\]
+and we can assume that \(E(T) \oplus E(U)\) is a submodule of \(yR/S\).
+There exists \(K \leq yR/S\) such that
+\[
+  yR/S = E(T) \oplus E(U) \oplus K.
+\]
+Hence
+\[
+  \frac{yR}{\soc(yR)}
+    \cong \frac{yR/S}{(S \oplus T \oplus U)/S}
+    \cong \frac{E(T)}{T} \oplus \frac{E(U)}{U} \oplus K,
+\]
+which contradicts the fact that \(yR/\soc(yR)\) is simple.
+
+Thus \(\soc(yR)\) has finite length. Since every simple \(R\)-module is
+injective, \(\soc(yR)\) is an injective \(R\)-module and hence a direct
+summand of \(yR\). Therefore there exists a simple module \(U\) such that
+\[
+  yR = \soc(yR) \oplus U,
+\]
+and so \(y \in \soc(R)\), which shows that \(R = \soc(R)\), i.e.\ \(R\) is
+semisimple.
+\end{proof}
+
 
 % Further chapters will be added as we progress.
 % Example:
