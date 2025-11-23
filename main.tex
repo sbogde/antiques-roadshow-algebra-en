@@ -2710,7 +2710,164 @@ P_n \cap S
   = V \cap \left( \bigoplus_{i=1}^n S_i \right)
   = \bigoplus_{i=1}^n V_i,
 \]
-and hence \(P_n \cap S = \bigoplus_{i=1}^n V_i\).
+and hence \(P_n \cap S\) is a finitely generated submodule of \(S\).
+
+
+It follows that \(P_n \cap S\) is a direct summand of \(X\).
+Since \(S \ess X_R\), we have
+\[
+P_n := \left(\bigoplus_{i=1}^n D_i\right) \cap L \leq S
+\quad \text{for all } n \geq 1,
+\]
+which shows that \(D \cap L \leq S\).
+
+Using the modular distributive law we obtain
+\[
+\frac{D}{S} \cap \frac{L+S}{S}
+   = \frac{D \cap (L+S)}{S}
+   = \frac{S + D \cap L}{S}
+   = 0.
+\]
+Since
+\(\dfrac{D}{S} \ess \dfrac{E+S}{S}\),
+it follows that \(L+S = S\), hence \(L \leq S\).
+Thus \(L\) is semisimple and, as \(V \ess L\),
+we get \(V = L\), a contradiction.
+Therefore \(X/S\) is not a CS-module.
+\end{proof}
+
+
+% Theorem 5.6 (Osofsky–Smith) – statement and start of the proof (EN)
+
+\begin{theorem}[Osofsky--Smith Theorem]\label{thm:Osofsky-Smith-EN}
+Let \(R\) be a ring and \(M\) a cyclic \(R\)-module such that
+\(mR\) is a completely CS-module for every \(m \in M\).
+Then \(M\) is a finite direct sum of uniform modules.
+\end{theorem}
+
+\begin{proof}[Proof]
+Every indecomposable CS-module is uniform, so it is enough to show
+that \(M\) is a finite direct sum of indecomposable modules.
+
+Assume that \(M\) does not admit such a decomposition.
+Then there exist submodules
+\[
+M = A_1 \oplus B_1,
+\quad
+0 \neq A_1, B_1 \leq M,
+\]
+with \(B_1\) not a direct sum of indecomposable modules.
+Hence we can write
+\[
+B_1 = A_2 \oplus B_2,
+\quad
+0 \neq A_2, B_2 \leq B_1,
+\]
+where \(B_2\) is again not a direct sum of indecomposable modules.
+
+Iterating this construction we obtain
+\[
+0 \neq A_i, B_i \leq M \quad (i \geq 1)
+\]
+with
+\[
+M = A_1 \oplus \cdots \oplus A_n \oplus B_n
+\quad (n \geq 1)
+\]
+and
+\[
+A_{n+1} \oplus A_{n+2} \oplus \cdots \leq B_n
+\quad (n \geq 1).
+\]
+
+Since each \(A_i\) is cyclic, choose for every \(i \geq 1\)
+a maximal submodule \(C_i \leq A_i\).
+Set
+\[
+C := \bigoplus_{i \geq 1} C_i,
+\qquad
+P := M/C,
+\qquad
+S := \bigoplus_{i \geq 1} \frac{A_i}{C_i}.
+\]
+Then \(S\) is a countably generated semisimple submodule of \(P\).
+
+For every \(n \geq 1\), by the modular distributive law we have
+\[
+(A_1 \oplus \cdots \oplus A_n \oplus C)
+  \cap (B_n + C)
+ = C + (A_1 \oplus \cdots \oplus A_n) \cap B_n
+ = C + \bigoplus_{k \geq n+1} C_k
+ = C.
+\]
+Hence
+\[
+P = \frac{M}{C}
+  = \frac{A_1 \oplus \cdots \oplus A_n \oplus C}{C}
+    \oplus \frac{B_n + C}{C}
+  \quad \text{for all } n \geq 1.
+\]
+
+If \(T \leq S\) is a finitely generated submodule, then for some
+\(n \geq 1\) we have
+\[
+T = \frac{A_1 \oplus \cdots \oplus A_n + C}{C},
+\]
+so every finitely generated submodule of \(S\) is a direct summand of \(P\).
+
+Now let \(X\) be a submodule of \(P\) with
+\(S \ess X \leq P\) such that \(X\) is CS and every finitely generated
+submodule of \(S\) is a direct summand of \(X\).
+If \(\operatorname{soc}(X)\) denotes the socle of \(X\),
+then \(S \ess \operatorname{soc}(X)\), and since \(S \ess X\)
+we get \(S = \operatorname{soc}(X)\).
+
+Thus the hypotheses of the previous lemma are satisfied, so \(X/S\)
+is not a CS-module, a contradiction.
+% Therefore \(M\) is a finite direct sum of indecomposable, hence uniform, modules.
+\end{proof}
+
+
+% Corollary 5.7 – statement and proof (EN)
+\begin{corollary}
+Let \(R\) be a ring such that every cyclic \(R\)-module is a CS-module.
+Then every cyclic \(R\)-module is a finite direct sum of uniform modules.
+\end{corollary}
+
+\begin{proof}[Proof]
+Let \(M_R\) be a cyclic module, \(m \in M\) and \(N \leq mR\).
+Then the factor module \(mR/N\) is cyclic and, by hypothesis, a CS-module.
+By the Osofsky--Smith Theorem it follows that \(mR\), hence \(M\),
+is a finite direct sum of uniform modules.
+\end{proof}
+
+% Corollary 5.8 – statement and proof (EN)
+
+\begin{corollary}[Corollary 5.8]
+Let \(N\) be an \(R\)-module such that every factor module of every cyclic
+submodule of \(N\) is injective.
+Then \(N\) is semisimple.
+\end{corollary}
+
+\begin{proof}[Proof]
+Take \(0 \neq x \in N\) and set \(C = xR \leq N\).
+By hypothesis, every factor module of a cyclic submodule of \(C\)
+is injective; hence every cyclic submodule of \(C\) is completely CS.
+By the Osofsky--Smith Theorem we have
+\[
+C = xR = \bigoplus_{i=1}^n U_i
+\]
+for certain uniform submodules \(U_i\).
+
+Since
+\[
+U_i \cong C \big/ \bigoplus_{j \neq i} U_j,
+\]
+each \(U_i\) is injective and therefore indecomposable for all
+\(i = 1,\dots,n\) (see Proposition~3.1).
+% Thus \(C\) is a finite direct sum of indecomposable injective modules, hence semisimple. As \(x\) was arbitrary, \(N\) is semisimple.
+
+
 \end{proof}
 
 
