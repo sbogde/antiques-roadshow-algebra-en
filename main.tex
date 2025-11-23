@@ -3056,6 +3056,177 @@ semisimple.
 \end{proof}
 
 
+\chapter{PCQI Rings}
+
+\begin{definition}\label{def:6.1-en}
+Let \(M\) be a right \(R\)-module. We say that \(M\) is \emph{proper} if
+\(M \ncong R_R\).
+
+A ring \(R\) is called a \emph{right PCQI ring} if every proper cyclic
+right \(R\)-module is quasi-injective.
+\end{definition}
+
+\begin{lemma}\label{lem:6.2-en}
+Let \(R\) be a right PCQI ring. Then every cyclic right \(R\)-module has
+finite uniform (co-irreducible) dimension.
+\end{lemma}
+
+\begin{proof}
+Let \(X\) be a cyclic right \(R\)-module.
+
+\medskip
+\noindent\textbf{Step 1.} We show that \(X/E\) has finite uniform
+(co-irreducible) dimension for every \(E \ess X\).
+
+Let \(E \ess X\). We prove that \(X/E\) satisfies the hypotheses of the
+Osofsky--Smith theorem. Consider a cyclic submodule \(Y/E\) of \(X/E\)
+and a submodule \(Z/E \leq Y/E\). Then
+\[
+  (Y/E)/(Z/E) \cong Y/Z.
+\]
+Since \(Z \ess Y\) (Proposition~1.8), we have \(Y/Z \neq R_R\) (otherwise
+\(Y/Z\) would be projective and hence \(Z\) would be a direct summand of
+\(Y\), a contradiction). As \(R\) is a right PCQI ring, the module
+\(Y/Z\) is quasi-injective and therefore, by Proposition~5.4, \(Y/Z\) is
+a CS-module.
+
+Thus every cyclic submodule of \(X/E\) is completely CS. By the
+Osofsky--Smith theorem it follows that \(X/E\) has finite uniform
+(co-irreducible) dimension.
+
+\medskip
+\noindent\textbf{Step 2.} The factor module \(X/S\) has finite uniform
+(co-irreducible) dimension, where \(S = \soc(X)\).
+
+Let \(T \leq X\) be such that, by Proposition~1.16, \((S \oplus T) \ess X\).
+From Step~1 we obtain that \(X/(S \oplus T)\) has finite uniform
+(co-irreducible) dimension. Put
+\[
+  \overline{T} = (S \oplus T)/S.
+\]
+Then \((X/S)/\overline{T}\) has finite uniform (co-irreducible)
+dimension. Since \(T \cong \overline{T}\), it remains to prove that \(T\)
+has finite uniform (co-irreducible) dimension.
+
+Assume that \(T\) does not have finite uniform (co-irreducible)
+dimension. Then \(T\) contains an essential submodule
+\[
+  V = \bigoplus_{i \geq 1} V_i,
+\]
+with \(V_i \neq 0\) for all \(i \geq 1\). As
+\(\soc(T) = S \cap T = 0\), we have \(\soc(V) = 0\). Hence for every
+\(i \geq 1\) there exists a proper non-zero submodule
+\(W_i \ess V_i\), \(W_i \neq V_i\) (otherwise, if for some \(i \geq 1\)
+the module \(V_i\) had no proper essential submodules, then
+\(\soc(V_i) = V_i\), contradicting \(\soc(V) = 0\)).
+
+Let
+\[
+  W = \bigoplus_{i \geq 1} W_i.
+\]
+By Proposition~1.9 we obtain \(W \ess V\) and therefore
+\((S + W) \ess (S + V)\). Since \(V \ess T\), we have
+\((S + W) \ess (S + T) \ess X\), hence \((S + W) \ess X\). Applying
+Step~1 to \(S + W\) we deduce that \(X/(S \oplus W)\) has finite uniform
+(co-irreducible) dimension.
+
+On the other hand,
+\[
+  \bigoplus_{i \geq 1} V_i/W_i = V/W \leq (S \oplus V)/(S \oplus W) \leq X/(S \oplus W),
+\]
+which contradicts the fact that \(X/(S \oplus W)\) has finite uniform
+(co-irreducible) dimension. Therefore \(T\) must have finite uniform
+(co-irreducible) dimension.
+
+\medskip
+\noindent\textbf{Step 3.} The socle \(S = \soc(X)\) is finitely
+generated.
+
+Assume that \(S\) is not finitely generated. Then we can write
+\(S = H \oplus K\), where neither \(H\) nor \(K\) is finitely generated.
+Since \(H\) cannot be a direct summand of \(X\), we have \(X/H \neq R_R\)
+(if \(X = H \oplus H'\) then \(H \cong X/H'\), and as \(X/H'\) is
+cyclic, this is impossible), hence \(X/H\) is quasi-injective. Let
+\(\overline{K} = (K \oplus H)/H\). Then
+\[
+  X/S \cong (X/H)/\overline{K},
+\]
+and by Step~2 the factor \((X/H)/\overline{K}\) has finite uniform
+(co-irreducible) dimension. Since \(\overline{K} \cong K\) and \(K\) is
+an infinite direct sum of simple modules, \((X/H)/\overline{K}\) cannot
+have finite uniform (co-irreducible) dimension (see Lemma~1 in
+\cite{DiHuWi}), a contradiction.
+
+We deduce that \(S = \soc(X)\) is finitely generated and therefore \(S\)
+has finite uniform (co-irreducible) dimension.
+
+\medskip
+Combining Steps~2 and~3 we conclude that \(X\) has finite uniform
+(co-irreducible) dimension.
+\end{proof}
+
+
+\begin{theorem}\label{thm:6.3-en}
+Let \(R\) be a prime right PCQI ring. Then \(R\) is right artinian or a
+right Ore domain.
+\end{theorem}
+
+\begin{proof}
+We first show that \(R\) is right nonsingular. Suppose that
+\(Z(R_R) \neq 0\). By the previous lemma, \(R\) has finite uniform
+(co-irreducible) dimension, hence there exists a co-irreducible
+submodule \(U \leq R_R\). Set
+\[
+  V := U \cap Z(R_R) \neq 0.
+\]
+Since \(R\) is prime, we have \(V^2 \neq 0\). Choose \(a \in V\) with
+\(aV \neq 0\). As \(V\) is co-irreducible, there exists
+\(0 \neq x \in V \cap \ann_r(a)\). Then \(xR \neq R_R\), so \(xR\) is
+quasi-injective. Let \(E(V)\) be the injective hull of \(V\). Since
+\(xR \ess V\), we have \(E(V) = E(xR)\) and \(xR\) is a fully invariant
+submodule of \(E(V)\). In particular, \(V(xR) \subseteq xR\). Hence
+\[
+  (aV)(xR) = a(VxR) \subseteq axR = 0.
+\]
+But \(aV \neq 0\) and \(xR \neq 0\), contradicting the primeness of
+\(R\).
+
+Thus \(Z(R_R) = 0\). By the previous lemma, \(R\) has finite uniform
+(co-irreducible) dimension. Since \(R\) is right nonsingular, it follows
+that \(R\) is a right Goldie ring. If \(R_R\) is co-irreducible, then
+\(R\) is either a division ring or a right Ore domain, and the theorem
+is proved in this case.
+
+Assume from now on that \(R_R\) is not co-irreducible. Consider
+\[
+  U_1 \oplus U_2 \oplus \cdots \oplus U_m = U \qquad (m \geq 2)
+\]
+a direct sum of co-irreducible submodules with \(U \ess R_R\). Take
+\(a_1 \in U_1 \setminus \{0\}\). Clearly \(a_1 R \neq R_R\), hence
+\(a_1 R\) is quasi-injective. Since \(R\) is a prime right Goldie ring,
+for each \(i = 2,\dots,m\) there exists \(a_i \in U_i\) such that
+\(a_i R \cong a_1 R\). Then
+\[
+  A = a_1 R \oplus a_2 R \oplus \cdots \oplus a_m R
+\]
+is quasi-injective. We have \(A \ess U\), hence \(A \ess R_R\). By
+Proposition~4.14, \(A\) contains a regular element \(c \in R\). Since
+\(cR \leq A\), the module \(A\) is \(cR\)-injective, and as
+\(cR \cong R_R\) we conclude that \(A\) is injective.
+
+Therefore the exact sequence
+\[
+  0 \longrightarrow A \longrightarrow R \longrightarrow R/A \longrightarrow 0
+\]
+splits, and from \(A \ess R_R\) we obtain \(A = R\). Hence \(R\) is
+right self-injective. A prime right Goldie, right self-injective ring is
+simple artinian; in particular, \(R\) is right artinian.
+
+Consequently, \(R\) is either a right Ore domain or a simple artinian
+ring, so in all cases \(R\) is right artinian or a right Ore domain.
+\end{proof}
+
+
 % Further chapters will be added as we progress.
 % Example:
 % \chapter{Title of Chapter 1}
