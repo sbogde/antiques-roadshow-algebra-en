@@ -1,5 +1,6 @@
 # Antiques Roadshow: Algebra Edition (English Translation)
 
+[![DOI](https://zenodo.org/badge/1098560161.svg)](https://doi.org/10.5281/zenodo.17705632)
 ![Condition](https://img.shields.io/badge/Condition-Good%20for%20Age-green)
 ![Valuation](https://img.shields.io/badge/Valuation-%C2%A33.50%20%26%20Custard%20Cream-blue)
 
